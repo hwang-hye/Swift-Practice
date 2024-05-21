@@ -51,7 +51,8 @@ class ViewController: UIViewController {
 
     }
     
-    // UI Design Funtion
+    
+    // UI Design Function
     func designedLabelUI(_ label: UILabel, text: String, fontSize: CGFloat, weight: UIFont.Weight) {
         
         label.text = text
@@ -76,6 +77,55 @@ class ViewController: UIViewController {
         textField.layer.cornerRadius = radius
         textField.keyboardType = type
     }
+    
+
+    // BMI Calculator
+    func bmiCalculate() -> String {
+        
+        let randomWeight = Double.random(in: 40.0...150.0)
+        let randomHeight = Double.random(in: 100.0...200.0)
+        
+        let userWeight = Double( weightTextField.text ?? "") ?? randomWeight
+        let userHeight = Double( heightTextField.text ?? "") ?? randomHeight
+        let userHeightCm = userHeight / 100
+        let result = (userWeight / (userHeightCm * userHeightCm))
+        let bmi = String(format: "%.1f", result)
+        
+        return bmi
+        
+    }
+    
+    
+    // Random BMI Event
+    @IBAction func randomBmiButtonClicked(_ sender: UIButton) {
+        
+        resultButtonClicked(sender)
+        
+    }
+    
+    
+    // BMI Result Action
+    @IBAction func resultButtonClicked(_ sender: UIButton) {
+        
+        let bmiResult = bmiCalculate()
+    
+        let alert = UIAlertController(
+            title: "BMI 결과",
+            message: "BMI는 \(bmiResult)입니다",
+            preferredStyle: .alert
+        )
+        
+        let check = UIAlertAction(
+            title: "확인",
+            style: .cancel
+        )
+        
+        alert.addAction(check)
+        
+        present(alert, animated: true)
+
+    }
+    
     
     // Tap Gesture End Action
     @IBAction func keyboardDismiss(_ sender: Any) {
