@@ -91,11 +91,33 @@ class ViewController: UIViewController {
     // BMI Calculator
     func bmiCalculate() -> String {
         
-        let randomWeight = Double.random(in: 40.0...150.0)
-        let randomHeight = Double.random(in: 100.0...200.0)
+        // TextField Value Check
+        guard let userHeight = Double(heightTextField.text!) else {
+            let errorMessage = "키를 입력해주세요"
+            return errorMessage
+        }
         
-        let userWeight = Double( weightTextField.text ?? "") ?? randomWeight
-        let userHeight = Double( heightTextField.text ?? "") ?? randomHeight
+        guard let userWeight = Double(weightTextField.text!) else {
+            let errorMessage = "몸무게를 입력해주세요"
+            return errorMessage
+        }
+        
+        // BMI Calculate
+        let userHeightCm = userHeight / 100
+        let result = (userWeight / (userHeightCm * userHeightCm))
+        let bmi = String(format: "%.1f", result)
+        
+        return bmi
+        
+    }
+    
+    
+    // Random BMI Calculator
+    func randomCalculator() -> String {
+        
+        let userWeight = Double.random(in: 40.0...150.0)
+        let userHeight = Double.random(in: 100.0...200.0)
+        
         let userHeightCm = userHeight / 100
         let result = (userWeight / (userHeightCm * userHeightCm))
         let bmi = String(format: "%.1f", result)
@@ -108,19 +130,39 @@ class ViewController: UIViewController {
     // Random BMI Event
     @IBAction func randomBmiButtonClicked(_ sender: UIButton) {
         
-        resultButtonClicked(sender)
+        let bmiResult = randomCalculator()
         
+        let alert = UIAlertController(
+            title: "랜덤 BMI 결과",
+            message: "\(bmiResult)",
+            preferredStyle: .alert
+        )
+        
+        let check = UIAlertAction(
+            title: "확인",
+            style: .cancel
+        )
+        
+        alert.addAction(check)
+        present(alert, animated: true)
     }
     
     
     // BMI Result Action
     @IBAction func resultButtonClicked(_ sender: UIButton) {
         
+        // TextField Value Check
+        guard let text = nicknameTextField.text, !text.isEmpty else {
+            showAlert(message: "닉네임을 입력해주세요")
+            return
+        }
+        
+        // 텍스트 필드에 값이 들어온 경우 실행할 코드
         let bmiResult = bmiCalculate()
     
         let alert = UIAlertController(
             title: "BMI 결과",
-            message: "BMI는 \(bmiResult)입니다",
+            message: "\(bmiResult)",
             preferredStyle: .alert
         )
         
@@ -134,6 +176,14 @@ class ViewController: UIViewController {
         present(alert, animated: true)
 
     }
+    
+    private func showAlert(message: String) {
+        let alert = UIAlertController(title: nil, message: message, preferredStyle: .alert)
+        let action = UIAlertAction(title: "확인", style: .default, handler: nil)
+        alert.addAction(action)
+        present(alert, animated: true, completion: nil)
+    }
+    
     
     
     // Tap Gesture End Action
