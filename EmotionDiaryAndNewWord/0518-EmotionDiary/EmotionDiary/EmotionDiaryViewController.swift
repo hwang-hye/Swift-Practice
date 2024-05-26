@@ -70,6 +70,22 @@ class EmotionDiaryViewController: UIViewController {
         designButtonUI(tenseEmotionButton, buttonImage: "slime7")
         designButtonUI(sadEmotionButton, buttonImage: "slime9")
         designButtonUI(randomEmotionButton, buttonImage: "slime8")
+        
+        
+        guard let like =  UserDefaults.standard.string(forKey: "like") else {
+            
+            // nil일 때 실행해야 하는 내용
+            happyEmotionLabel.text = "행복해"
+            return
+        }
+        
+        
+        happyEmotionLabel.text = "좋아요 \(like)"
+        
+        
+        
+        
+        
     }
     
     // Emotion Button Clicked Action
