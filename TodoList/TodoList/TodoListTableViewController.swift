@@ -7,6 +7,13 @@
 
 import UIKit
 
+struct Todo {
+    var title: String
+    var isChecked: Bool
+}
+
+
+
 class TodoListTableViewController: UITableViewController {
     
     // Outlet
@@ -15,9 +22,8 @@ class TodoListTableViewController: UITableViewController {
     @IBOutlet var todoTextField: UITextField!
     @IBOutlet var addTodoButton: UIButton!
     
-    
     //  변수
-    var todoList: [String] = []
+    var todoList: [Todo] = []
  
     
     override func viewDidLoad() {
@@ -52,11 +58,38 @@ class TodoListTableViewController: UITableViewController {
     // Cell의 내용 설정
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "todoCell")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TodoTableViewCell", for: indexPath) as! TodoTableViewCell
+        let data = todoList[indexPath.row]
         
-        cell.textLabel?.text = todoList[indexPath.row]
+        
+        cell.todoCheckButton.tintColor = .black
+        cell.todoListLabel?.text = data.title
+
+        
+        if data.isChecked {
+            let image = UIImage(systemName: "checkmark.square")
+            cell.todoCheckButton.setImage(image, for: .normal)
+        } else {
+            let image = UIImage(systemName: "square")
+            
+            
+            cell.todoCheckButton.setImage(image, for: .normal)
+            cell.todoCheckButton.tag = indexPath.row
+            cell.todoCheckButton.addTarget(self, action: #selector(checkButtonClicked), for: .touchUpInside)
+            
+        }
 
         return cell
+    }
+    
+    
+    // Cell Remove
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        todoList.remove(at: indexPath.row)
+        
+        tableView.reloadData()
+        
     }
     
     
@@ -75,7 +108,8 @@ class TodoListTableViewController: UITableViewController {
             
             }
     
-        todoList.append(text)
+        let newTodo = Todo(title: text, isChecked: false)
+        todoList.append(newTodo)
         todoTextField.text = ""
         
         tableView.reloadData()
@@ -90,5 +124,20 @@ class TodoListTableViewController: UITableViewController {
             alert.addAction(action)
             present(alert, animated: true, completion: nil)
         }
+    
+    
+    // Checkbox Button Clicked Action
+    @objc
+    func checkButtonClicked(sender: UIButton) {
+        
+        todoList[sender.tag].isChecked.toggle()
+        
+        // change된 cell만 reload
+        tableView.reloadRows(at: [IndexPath(row: sender.tag, section: 0)], with: .automatic)
+        // tableView.reloadData()
+
+        print(sender.tag)
+        
+    }
     
 }
