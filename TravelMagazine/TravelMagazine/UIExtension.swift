@@ -20,6 +20,7 @@ extension UILabel {
         self.font = .boldSystemFont(ofSize: 14)
         self.textAlignment = .left
         self.textColor = .darkGray
+
     }
     
     func setFavoriteCountLable() {

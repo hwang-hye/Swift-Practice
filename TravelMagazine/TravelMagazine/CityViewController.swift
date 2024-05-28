@@ -21,7 +21,7 @@ class CityViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        cityTableView.rowHeight = 120
+        cityTableView.rowHeight = 140
 
         // TableView의 delegate, datagate 속성을 현재 객체(self)로 설정
         // TableView에서 발생하는 이벤트를 현재 객체에서 처리하겠다는 뜻
