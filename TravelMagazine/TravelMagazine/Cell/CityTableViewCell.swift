@@ -9,19 +9,15 @@ import UIKit
 import Kingfisher
 
 
-
 class CityTableViewCell: UITableViewCell {
 
-    // City
+    // City Cell Outlet
     @IBOutlet var cityTitleLabel: UILabel!
     @IBOutlet var citySubtitleLabel: UILabel!
     @IBOutlet var starRatingLabel: UILabel!
     @IBOutlet var favoritesCountLabel: UILabel!
     @IBOutlet var travelImageView: UIImageView!
     @IBOutlet var favoriteButton: UIButton!
-    
-
-    
     
     
     override func awakeFromNib() {
@@ -30,17 +26,17 @@ class CityTableViewCell: UITableViewCell {
         configureLayout()
     }
 
-    // configureLayout 정의?
-    // extention 가지고 와서 사용
+    // configureLayout
+    // extention 으로 구성
     func configureLayout() {
         cityTitleLabel.setTitleLabel()
         citySubtitleLabel.setSubtitleLabl()
-        favoritesCountLabel.setFavoriteCountLable()
+        favoritesCountLabel.setInfoLable()
         favoriteButton.setFovorieButton()
     
     }
     
-    
+    // Cell에 어떤 값(data)을 어떻게 담을 것인지
     func configureCell(data: Travel) {
         
         cityTitleLabel.text = data.title

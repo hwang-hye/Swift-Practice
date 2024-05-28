@@ -14,7 +14,7 @@ class CityViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
     @IBOutlet var cityTableView: UITableView!
     
     // Travel 데이터
-    var list = TravelInfo().travel
+    var list = TravelInfo.travel
     
     
     // 화면에 그려줌

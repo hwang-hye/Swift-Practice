@@ -1,8 +1,8 @@
 //
-//  UIExtension.swift
+//  UILabel+.swift
 //  TravelMagazine
 //
-//  Created by hwanghye on 5/27/24.
+//  Created by hwanghye on 5/28/24.
 //
 
 import UIKit
@@ -23,7 +23,7 @@ extension UILabel {
 
     }
     
-    func setFavoriteCountLable() {
+    func setInfoLable() {
         self.font = .boldSystemFont(ofSize: 10)
         self.textAlignment = .left
         self.textColor = .gray
@@ -31,10 +31,3 @@ extension UILabel {
     
 }
 
-extension UIButton {
-    
-    func setFovorieButton() {
-        self.tintColor = .red
-        self.setImage(UIImage(systemName: "heart"), for: .normal)
-    }
-}
