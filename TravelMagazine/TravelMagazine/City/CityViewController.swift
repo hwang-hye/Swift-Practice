@@ -25,7 +25,7 @@ class CityViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         
         cityNavigationTitle.title = "도시 상세 정보"
         cityTableView.rowHeight = 140
-
+        
         // TableView의 delegate, datagate 속성을 현재 객체(self)로 설정
         // TableView에서 발생하는 이벤트를 현재 객체에서 처리하겠다는 뜻
         cityTableView.delegate = self
@@ -67,7 +67,7 @@ class CityViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
             }
             cell.adLabel.text = data.title
             return cell
-        
+            
         } else {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "CityTableViewCell", for: indexPath) as? CityTableViewCell else {
                 return UITableViewCell()
@@ -76,5 +76,32 @@ class CityViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         
         return cell
     }
-
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        let cityCell = list[indexPath.row]
+        
+        if cityCell.ad {
+            
+            // 스토리보드 가져오기
+            let storyBoard = UIStoryboard(name: "City", bundle: nil)
+            
+            // 전환하고자 하는 화면: AD Detail Page
+            let cityShow = storyBoard.instantiateViewController(identifier: "ADDetailViewController") as! ADDetailViewController
+            
+            cityShow.modalPresentationStyle = .fullScreen
+            
+            present(cityShow, animated: true)
+            
+        } else {
+            
+            let storyBoard = UIStoryboard(name: "City", bundle: nil)
+            let adPresent = storyBoard.instantiateViewController(withIdentifier: "CityDetailViewController") as! CityDetailViewController
+            
+            navigationController?.pushViewController(adPresent, animated: true)
+            
+        }
+        
+        tableView.reloadRows(at: [indexPath], with: .automatic)
+    }
 }
