@@ -32,7 +32,7 @@ class TravelMagazineTableViewCell: UITableViewCell {
         
         travelMagazineTitleLabel.setTitleLabel()
         travelMagazineSubtitleLabel.setSubtitleLabl()
-        travelMagazineDate.setInfoLable()
+        travelMagazineDate.setDateLabel()
         
     }
     
@@ -50,12 +50,13 @@ class TravelMagazineTableViewCell: UITableViewCell {
         
         travelMagazineTitleLabel.text = data.title
         travelMagazineSubtitleLabel.text = data.subtitle
-        travelMagazineDate.text = data.date
-        
+        travelMagazineDate.text = data.formattedDate()
+
         let url = URL(string: data.photo_image)
         travelMagazineImageView.kf.setImage(with: url, placeholder: UIImage(systemName: "photo"))
         travelMagazineImageView.contentMode = .scaleAspectFill
     }
+    
 }
 
 

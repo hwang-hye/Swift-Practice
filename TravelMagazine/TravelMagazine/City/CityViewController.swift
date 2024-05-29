@@ -12,6 +12,8 @@ class CityViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
     
     
     @IBOutlet var cityTableView: UITableView!
+    @IBOutlet var cityNavigationTitle: UINavigationItem!
+    
     
     // Travel 데이터
     var list = TravelInfo.travel
@@ -21,6 +23,7 @@ class CityViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        cityNavigationTitle.title = "도시 상세 정보"
         cityTableView.rowHeight = 140
 
         // TableView의 delegate, datagate 속성을 현재 객체(self)로 설정
@@ -32,6 +35,8 @@ class CityViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         // 이를 cityTableView에서 재사용할 셀로 사용하는 과정
         let xib = UINib(nibName: "CityTableViewCell", bundle: nil)
         cityTableView.register(xib, forCellReuseIdentifier: "CityTableViewCell")
+        let xibAd = UINib(nibName: "ADTableViewCell", bundle: nil)
+        cityTableView.register(xibAd, forCellReuseIdentifier: "ADTableViewCell")
         
     }
     
@@ -56,14 +61,20 @@ class CityViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
         // 내려받은 cell의 UI를 사용?
         cell.configureCell(data: data)
         
+        if data.ad {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "ADTableViewCell", for: indexPath) as? ADTableViewCell else {
+                return UITableViewCell()
+            }
+            cell.adLabel.text = data.title
+            return cell
+        
+        } else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "CityTableViewCell", for: indexPath) as? CityTableViewCell else {
+                return UITableViewCell()
+            }
+        }
+        
         return cell
     }
-    
-
-    
-    
-    
-
-
 
 }

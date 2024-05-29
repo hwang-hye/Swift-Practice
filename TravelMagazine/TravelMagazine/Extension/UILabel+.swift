@@ -20,7 +20,6 @@ extension UILabel {
         self.font = .boldSystemFont(ofSize: 14)
         self.textAlignment = .left
         self.textColor = .darkGray
-
     }
     
     func setInfoLable() {
@@ -29,5 +28,26 @@ extension UILabel {
         self.textColor = .gray
     }
     
+    func setAdLabel() {
+        self.font = .boldSystemFont(ofSize: 20)
+        self.textAlignment = .center
+        self.backgroundColor = RandomColor()
+    }
+    
+    func setDateLabel() {
+        self.font = .systemFont(ofSize: 12)
+        self.textAlignment = .right
+        self.textColor = .darkGray
+    }
+
+    
+    // AD Background RandomColor
+    func RandomColor() -> UIColor {
+            let red = CGFloat.random(in: 0...1)
+            let green = CGFloat.random(in: 0...1)
+            let blue = CGFloat.random(in: 0...1)
+            let color = UIColor(red: red, green: green, blue: blue, alpha: 1.0)
+            return color
+        }
 }
 

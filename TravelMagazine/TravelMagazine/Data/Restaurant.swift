@@ -8,7 +8,8 @@
 
 import Foundation
 
-struct Restaurant {    
+
+struct Restaurant {
     
     let image: String
     let latitude: Double
@@ -21,6 +22,7 @@ struct Restaurant {
     let type: Int
     
 }
+
 
 struct RestaurantList {
     let restaurantArray: [Restaurant] = [

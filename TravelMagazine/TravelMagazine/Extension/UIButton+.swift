@@ -9,8 +9,10 @@ import UIKit
 
 extension UIButton {
     
-    func setFovorieButton() {
+    func setFovoriteButton() {
         self.tintColor = .red
+        
         self.setImage(UIImage(systemName: "heart"), for: .normal)
+        self.setImage(UIImage(systemName: "heart.fill"), for: .selected)
     }
 }

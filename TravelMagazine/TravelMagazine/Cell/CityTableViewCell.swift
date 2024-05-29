@@ -32,7 +32,7 @@ class CityTableViewCell: UITableViewCell {
         cityTitleLabel.setTitleLabel()
         citySubtitleLabel.setSubtitleLabl()
         favoritesCountLabel.setInfoLable()
-        favoriteButton.setFovorieButton()
+        favoriteButton.setFovoriteButton()
     
     }
     
@@ -41,6 +41,7 @@ class CityTableViewCell: UITableViewCell {
         
         cityTitleLabel.text = data.title
         citySubtitleLabel.text = data.description
+        starRatingLabel.text = "☆☆☆☆☆"
         favoritesCountLabel.text = data.save?.formatted()
         
         let defaultImageURL = "https://img.freepik.com/premium-vector/default-image-icon-vector-missing-picture-page-website-design-mobile-app-no-photo-available_87543-11093.jpg"
@@ -48,6 +49,14 @@ class CityTableViewCell: UITableViewCell {
         
         travelImageView.kf.setImage(with: url, placeholder: UIImage(systemName: "photo"))
         travelImageView.contentMode = .scaleAspectFill
+        travelImageView.layer.cornerRadius = 8
+        
+    }
+    
+    
+    @IBAction func favoriteButtonClicked(_ sender: UIButton) {
+        
+        sender.isSelected.toggle()
         
     }
     

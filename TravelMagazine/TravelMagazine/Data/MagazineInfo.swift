@@ -6,6 +6,7 @@
 
 import Foundation
 
+
 struct Magazine {
     
     let title: String
@@ -13,6 +14,16 @@ struct Magazine {
     let photo_image: String
     let date: String
     let link: String
+    
+    func formattedDate() -> String {
+         let dateFormatter = DateFormatter()
+         dateFormatter.dateFormat = "yyMMdd"
+         guard let date = dateFormatter.date(from: self.date) else {
+             return self.date
+         }
+         dateFormatter.dateFormat = "yy-MM-dd"
+         return dateFormatter.string(from: date)
+     }
 }
 
 

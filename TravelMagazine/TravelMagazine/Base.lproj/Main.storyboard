@@ -10,7 +10,7 @@
         <scene sceneID="5YW-4a-vb3">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gAi-gc-GRl" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="oLW-Qd-Qdm"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="photo.on.rectangle.angled" catalog="system" id="oLW-Qd-Qdm"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4HQ-NG-wWf">
                         <rect key="frame" x="0.0" y="59" width="430" height="44"/>
@@ -68,7 +68,7 @@
         <scene sceneID="iS2-zU-RKH">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pKh-z4-2aU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="kNx-zo-ijS"/>
+                    <tabBarItem key="tabBarItem" title="Item" image="photo.fill" catalog="system" id="kNx-zo-ijS"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="QrT-nU-U12">
                         <rect key="frame" x="0.0" y="59" width="430" height="44"/>
@@ -84,4 +84,8 @@
             <point key="canvasLocation" x="156" y="568"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="photo.fill" catalog="system" width="128" height="93"/>
+        <image name="photo.on.rectangle.angled" catalog="system" width="128" height="98"/>
+    </resources>
 </document>
