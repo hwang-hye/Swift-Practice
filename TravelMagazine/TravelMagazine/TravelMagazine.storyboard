@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="38G-ha-8WP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="32700.99.1234" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Ndu-3d-qS6">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
@@ -9,44 +9,44 @@
     </dependencies>
     <scenes>
         <!--Travel Magazine Table View Controller-->
-        <scene sceneID="dGB-U5-X6d">
+        <scene sceneID="IDm-it-H03">
             <objects>
-                <viewController id="38G-ha-8WP" customClass="TravelMagazineTableViewController" customModule="TravelMagazine" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="nTa-xN-cGv">
+                <viewController id="Ndu-3d-qS6" customClass="TravelMagazineTableViewController" customModule="TravelMagazine" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ywt-Pj-WV2">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mkN-gD-OfF">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="mUE-1V-o2U">
                                 <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="TravelMagazineTableViewCell" rowHeight="506" id="gL0-VE-kxA" customClass="TravelMagazineTableViewCell" customModule="TravelMagazine" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="50" width="393" height="506"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="x1C-Qe-FDh">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="44.666667938232422"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gL0-VE-kxA" id="ZwU-M9-N7q">
-                                            <rect key="frame" x="0.0" y="0.0" width="393" height="506"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="x1C-Qe-FDh" id="y9N-nw-xPw">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="44.666667938232422"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
                         </subviews>
-                        <viewLayoutGuide key="safeArea" id="DRq-cf-hp8"/>
+                        <viewLayoutGuide key="safeArea" id="onj-Sd-yFu"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="DRq-cf-hp8" firstAttribute="trailing" secondItem="mkN-gD-OfF" secondAttribute="trailing" id="8rk-RT-Skk"/>
-                            <constraint firstItem="DRq-cf-hp8" firstAttribute="bottom" secondItem="mkN-gD-OfF" secondAttribute="bottom" id="LEc-3F-4Kk"/>
-                            <constraint firstItem="mkN-gD-OfF" firstAttribute="top" secondItem="DRq-cf-hp8" secondAttribute="top" id="ZJp-tP-50g"/>
-                            <constraint firstItem="mkN-gD-OfF" firstAttribute="leading" secondItem="DRq-cf-hp8" secondAttribute="leading" id="aP3-EB-OcR"/>
+                            <constraint firstItem="mUE-1V-o2U" firstAttribute="leading" secondItem="onj-Sd-yFu" secondAttribute="leading" id="KKB-eh-VQr"/>
+                            <constraint firstItem="onj-Sd-yFu" firstAttribute="bottom" secondItem="mUE-1V-o2U" secondAttribute="bottom" id="PIf-sP-Uij"/>
+                            <constraint firstItem="mUE-1V-o2U" firstAttribute="top" secondItem="onj-Sd-yFu" secondAttribute="top" id="RWq-AR-Few"/>
+                            <constraint firstItem="onj-Sd-yFu" firstAttribute="trailing" secondItem="mUE-1V-o2U" secondAttribute="trailing" id="dwb-8T-XIj"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="TravelMagazineTableView" destination="mkN-gD-OfF" id="mBL-x7-QR2"/>
+                        <outlet property="TravelMagazineTableView" destination="mUE-1V-o2U" id="krc-b3-CCX"/>
                     </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Nig-2c-gb2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RuU-hC-L0W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-11" y="4"/>
+            <point key="canvasLocation" x="663" y="35"/>
         </scene>
     </scenes>
     <resources>
