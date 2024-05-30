@@ -39,6 +39,21 @@ extension UILabel {
         self.textAlignment = .right
         self.textColor = .darkGray
     }
+    
+    func setTopCityTitleLabel() {
+        self.font = .boldSystemFont(ofSize: 24)
+        self.textColor = .white
+        self.textAlignment = .right
+    }
+    
+    func setTopCitySubtitleLabel() {
+        
+        self.font = .systemFont(ofSize: 16)
+        self.textColor = .white
+        self.textAlignment = .left
+        
+    }
+    
 
     
     // AD Background RandomColor
