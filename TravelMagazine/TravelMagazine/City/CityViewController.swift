@@ -87,18 +87,24 @@ class CityViewController: UIViewController, UITabBarDelegate, UITableViewDataSou
             let storyBoard = UIStoryboard(name: "City", bundle: nil)
             
             // 전환하고자 하는 화면: AD Detail Page
-            let cityShow = storyBoard.instantiateViewController(identifier: "ADDetailViewController") as! ADDetailViewController
+            let adPresent = storyBoard.instantiateViewController(identifier: "ADDetailViewController") as! ADDetailViewController
             
-            cityShow.modalPresentationStyle = .fullScreen
+            adPresent.modalPresentationStyle = .fullScreen
             
-            present(cityShow, animated: true)
+            adPresent.data = list[indexPath.row]
+            
+            present(adPresent, animated: true)
+            
             
         } else {
             
             let storyBoard = UIStoryboard(name: "City", bundle: nil)
-            let adPresent = storyBoard.instantiateViewController(withIdentifier: "CityDetailViewController") as! CityDetailViewController
+            let cityShow = storyBoard.instantiateViewController(withIdentifier: "CityDetailViewController") as! CityDetailViewController
             
-            navigationController?.pushViewController(adPresent, animated: true)
+            // Pass Data 2
+            cityShow.data = list[indexPath.row]
+            
+            navigationController?.pushViewController(cityShow, animated: true)
             
         }
         

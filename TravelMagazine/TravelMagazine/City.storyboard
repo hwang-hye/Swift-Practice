@@ -59,9 +59,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OIU-qs-WDX">
-                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
+                                <rect key="frame" x="0.0" y="89" width="393" height="300"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="300" id="ahh-U9-WEg"/>
+                                </constraints>
                                 <string key="text">Tourist destinations
 </string>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="95L-JA-exA">
+                                <rect key="frame" x="0.0" y="419" width="393" height="399"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -70,12 +79,19 @@
                         <viewLayoutGuide key="safeArea" id="lck-vt-ykI"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="lck-vt-ykI" firstAttribute="bottom" secondItem="OIU-qs-WDX" secondAttribute="bottom" id="CCF-rt-1lF"/>
+                            <constraint firstItem="95L-JA-exA" firstAttribute="leading" secondItem="lck-vt-ykI" secondAttribute="leading" id="51O-Gp-Lok"/>
+                            <constraint firstItem="lck-vt-ykI" firstAttribute="bottom" secondItem="95L-JA-exA" secondAttribute="bottom" id="6Te-Me-YZZ"/>
                             <constraint firstItem="OIU-qs-WDX" firstAttribute="leading" secondItem="lck-vt-ykI" secondAttribute="leading" id="GDz-sG-9Rd"/>
-                            <constraint firstItem="OIU-qs-WDX" firstAttribute="top" secondItem="lck-vt-ykI" secondAttribute="top" id="Pzn-Tr-LM7"/>
+                            <constraint firstItem="OIU-qs-WDX" firstAttribute="top" secondItem="lck-vt-ykI" secondAttribute="top" constant="30" id="Pzn-Tr-LM7"/>
+                            <constraint firstItem="95L-JA-exA" firstAttribute="top" secondItem="OIU-qs-WDX" secondAttribute="bottom" constant="30" id="Wqt-eO-w0s"/>
                             <constraint firstItem="lck-vt-ykI" firstAttribute="trailing" secondItem="OIU-qs-WDX" secondAttribute="trailing" id="hog-xr-pX5"/>
+                            <constraint firstItem="lck-vt-ykI" firstAttribute="trailing" secondItem="95L-JA-exA" secondAttribute="trailing" id="s6x-5m-QHi"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="cityDescriptDetailLabel" destination="OIU-qs-WDX" id="81z-8Q-Ptn"/>
+                        <outlet property="cityRatingLabel" destination="95L-JA-exA" id="PqO-np-7lQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vfq-GA-u58" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -109,13 +125,16 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="b3e-Io-WP6" firstAttribute="trailing" secondItem="R5u-ln-ftY" secondAttribute="trailing" constant="20" id="03f-PN-G74"/>
-                            <constraint firstItem="lCc-YV-pf3" firstAttribute="leading" secondItem="b3e-Io-WP6" secondAttribute="leading" id="E4h-lc-2SE"/>
-                            <constraint firstItem="b3e-Io-WP6" firstAttribute="bottom" secondItem="lCc-YV-pf3" secondAttribute="bottom" id="It2-hg-Cqb"/>
-                            <constraint firstItem="b3e-Io-WP6" firstAttribute="trailing" secondItem="lCc-YV-pf3" secondAttribute="trailing" id="MUF-ad-mt4"/>
-                            <constraint firstItem="lCc-YV-pf3" firstAttribute="top" secondItem="b3e-Io-WP6" secondAttribute="top" id="NfB-Vv-CDD"/>
+                            <constraint firstItem="lCc-YV-pf3" firstAttribute="leading" secondItem="b3e-Io-WP6" secondAttribute="leading" id="PlE-dm-L26"/>
+                            <constraint firstItem="lCc-YV-pf3" firstAttribute="top" secondItem="b3e-Io-WP6" secondAttribute="top" id="Pvp-y3-IjU"/>
+                            <constraint firstItem="lCc-YV-pf3" firstAttribute="bottom" secondItem="b3e-Io-WP6" secondAttribute="bottom" id="X7Z-9D-cNt"/>
+                            <constraint firstItem="b3e-Io-WP6" firstAttribute="trailing" secondItem="lCc-YV-pf3" secondAttribute="trailing" id="f8q-Fg-OAh"/>
                             <constraint firstItem="R5u-ln-ftY" firstAttribute="top" secondItem="b3e-Io-WP6" secondAttribute="top" constant="20" id="k4T-US-QIf"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="adDescriptionLabel" destination="lCc-YV-pf3" id="rNH-wq-Ong"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oFn-l5-pGL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
