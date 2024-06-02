@@ -51,6 +51,9 @@ extension UILabel {
         self.font = .systemFont(ofSize: 16)
         self.textColor = .white
         self.textAlignment = .left
+        self.setLeadingPadding(12)
+        self.backgroundColor = .black
+        self.layer.opacity = 0.7
         
     }
     
@@ -63,6 +66,19 @@ extension UILabel {
             let blue = CGFloat.random(in: 0...1)
             let color = UIColor(red: red, green: green, blue: blue, alpha: 1.0)
             return color
+        }
+    
+    // UILabel Pharagraph Style Indent
+    func setLeadingPadding(_ padding: CGFloat) {
+            guard let text = self.text else { return }
+            
+            let paragraphStyle = NSMutableParagraphStyle()
+            paragraphStyle.firstLineHeadIndent = padding
+            
+            let attributedString = NSMutableAttributedString(string: text)
+            attributedString.addAttribute(.paragraphStyle, value: paragraphStyle, range: NSMakeRange(0, attributedString.length))
+            
+            self.attributedText = attributedString
         }
 }
 

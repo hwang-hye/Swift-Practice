@@ -18,7 +18,6 @@ extension UIImageView {
         self.layer.shadowOpacity = 0.8
         self.layer.shadowRadius = 5
         self.layer.shadowColor = UIColor.gray.cgColor
-        self.clipsToBounds = true
         
     }
     

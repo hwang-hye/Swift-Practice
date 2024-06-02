@@ -39,7 +39,7 @@ class TopCityTableViewCell: UITableViewCell {
         topCityTitleLabel.setTopCityTitleLabel()
         topCitySubtitleLabel.setTopCitySubtitleLabel()
         topCityImageView.setTopCityImageView()
-
+        topCityImageView.addSubview(topCitySubtitleLabel)
     }
 
     
