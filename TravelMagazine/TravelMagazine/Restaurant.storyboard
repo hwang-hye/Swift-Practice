@@ -3,6 +3,7 @@
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22685"/>
+        <capability name="Map view configurations" minToolsVersion="14.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -61,6 +62,36 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="73" y="-55"/>
+        </scene>
+        <!--Map View Controller-->
+        <scene sceneID="OsY-th-RMe">
+            <objects>
+                <viewController storyboardIdentifier="MapViewController" id="aUl-3c-WCP" customClass="MapViewController" customModule="TravelMagazine" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7Vn-px-I3h">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pxL-Cm-LhE">
+                                <rect key="frame" x="0.0" y="109" width="393" height="709"/>
+                                <standardMapConfiguration key="preferredConfiguration"/>
+                            </mapView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="PYG-iw-umf"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="pxL-Cm-LhE" firstAttribute="leading" secondItem="PYG-iw-umf" secondAttribute="leading" id="OFS-P7-R9r"/>
+                            <constraint firstItem="PYG-iw-umf" firstAttribute="trailing" secondItem="pxL-Cm-LhE" secondAttribute="trailing" id="f0e-cb-q3P"/>
+                            <constraint firstItem="pxL-Cm-LhE" firstAttribute="top" secondItem="PYG-iw-umf" secondAttribute="top" constant="50" id="hGs-P1-Kv7"/>
+                            <constraint firstItem="PYG-iw-umf" firstAttribute="bottom" secondItem="pxL-Cm-LhE" secondAttribute="bottom" id="mPi-ff-Gha"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mapView" destination="pxL-Cm-LhE" id="0fn-Cx-Abw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oWt-8x-jt7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="905" y="-56"/>
         </scene>
     </scenes>
     <resources>

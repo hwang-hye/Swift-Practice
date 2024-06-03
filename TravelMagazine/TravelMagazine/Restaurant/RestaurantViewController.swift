@@ -18,6 +18,9 @@ class RestaurantViewController: UIViewController, UITableViewDelegate, UITableVi
     override func viewDidLoad() {
         super.viewDidLoad()
         configureTableView()
+        
+        let map = UIBarButtonItem(title: "지도", style: .plain, target: self, action: #selector(mapButtonClicked))
+        navigationItem.leftBarButtonItem = map
     }
     
     func configureTableView() {
@@ -39,6 +42,12 @@ class RestaurantViewController: UIViewController, UITableViewDelegate, UITableVi
         cell.configureCell(list[indexPath.row])
         
         return cell
+    }
+    
+    @objc func mapButtonClicked() {
+        let sb = UIStoryboard(name: "Restaurant", bundle: nil)
+        let vc = sb.instantiateViewController(withIdentifier: MapViewController.identifier) as! MapViewController
+        navigationController?.pushViewController(vc, animated: true)
     }
     
 }
