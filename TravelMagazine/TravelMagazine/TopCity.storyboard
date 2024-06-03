@@ -56,8 +56,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="S9g-rg-O1G"/>
                     <connections>
-                        <outlet property="topCItySegController" destination="sar-Dc-VLx" id="Jio-Zd-bud"/>
                         <outlet property="topCityNavigationTiltle" destination="S9g-rg-O1G" id="BpK-av-exQ"/>
+                        <outlet property="topCitySegController" destination="sar-Dc-VLx" id="5Lt-av-9W5"/>
                         <outlet property="topCityTableView" destination="xUR-Cv-lib" id="hFM-2e-3UU"/>
                     </connections>
                 </viewController>
