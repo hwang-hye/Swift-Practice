@@ -54,10 +54,8 @@ extension UILabel {
         self.setLeadingPadding(12)
         self.backgroundColor = .black
         self.layer.opacity = 0.7
-        
     }
     
-
     
     // AD Background RandomColor
     func RandomColor() -> UIColor {

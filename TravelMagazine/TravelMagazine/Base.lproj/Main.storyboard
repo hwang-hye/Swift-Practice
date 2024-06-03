@@ -6,11 +6,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Item-->
+        <!--Magazine-->
         <scene sceneID="5YW-4a-vb3">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="gAi-gc-GRl" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="photo.on.rectangle.angled" catalog="system" id="oLW-Qd-Qdm"/>
+                    <tabBarItem key="tabBarItem" title="Magazine" image="book.circle.fill" catalog="system" id="oLW-Qd-Qdm"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4HQ-NG-wWf">
                         <rect key="frame" x="0.0" y="59" width="430" height="44"/>
@@ -24,6 +24,16 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kZa-IT-jkB" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1054.8837209302326" y="-178.32618025751074"/>
+        </scene>
+        <!--Restaurant-->
+        <scene sceneID="4BD-ZB-FBg">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="Restaurant" storyboardName="Restaurant" id="w4k-3f-naO" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="2bP-m2-kuf"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Sp-JX-3Ze" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1611" y="-868"/>
         </scene>
         <!--TravelMagazine-->
         <scene sceneID="lsk-h4-51G">
@@ -43,7 +53,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="lbv-Wk-GW1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1841" y="465"/>
+            <point key="canvasLocation" x="1611" y="583"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="GRr-aW-Uw8">
@@ -59,6 +69,7 @@
                         <segue destination="gAi-gc-GRl" kind="relationship" relationship="viewControllers" id="M3D-c7-xSj"/>
                         <segue destination="pKh-z4-2aU" kind="relationship" relationship="viewControllers" id="iOb-AY-Xcp"/>
                         <segue destination="K9L-Jn-I0o" kind="relationship" relationship="viewControllers" id="efO-ad-cXG"/>
+                        <segue destination="cTn-Ca-Urr" kind="relationship" relationship="viewControllers" id="vby-Qj-9Pw"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="p28-ZF-xmp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -75,11 +86,11 @@
             </objects>
             <point key="canvasLocation" x="126" y="614"/>
         </scene>
-        <!--Item-->
+        <!--City-->
         <scene sceneID="iS2-zU-RKH">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="pKh-z4-2aU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="photo.fill" catalog="system" id="kNx-zo-ijS"/>
+                    <tabBarItem key="tabBarItem" title="City" image="building.2.crop.circle.fill" catalog="system" id="kNx-zo-ijS"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="QrT-nU-U12">
                         <rect key="frame" x="0.0" y="59" width="430" height="44"/>
@@ -94,11 +105,11 @@
             </objects>
             <point key="canvasLocation" x="1055" y="552"/>
         </scene>
-        <!--Item-->
+        <!--TopCity-->
         <scene sceneID="K84-Ea-o6b">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="K9L-Jn-I0o" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" image="building.2.crop.circle.fill" catalog="system" id="Ajh-Vd-XBN"/>
+                    <tabBarItem key="tabBarItem" title="TopCity" image="building.columns.circle.fill" catalog="system" id="Ajh-Vd-XBN"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="TPz-L6-uAP">
                         <rect key="frame" x="0.0" y="59" width="430" height="44"/>
@@ -113,10 +124,30 @@
             </objects>
             <point key="canvasLocation" x="-491" y="583"/>
         </scene>
+        <!--Restaurant-->
+        <scene sceneID="Z48-Qz-rsM">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cTn-Ca-Urr" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Restaurant" image="fork.knife.circle.fill" catalog="system" id="BoG-ms-68L"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="3va-SO-qBs">
+                        <rect key="frame" x="0.0" y="59" width="430" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="w4k-3f-naO" kind="relationship" relationship="rootViewController" id="eO7-vL-V5Q"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uyh-VG-GD4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1055" y="-868"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="book.circle.fill" catalog="system" width="128" height="123"/>
         <image name="building.2.crop.circle.fill" catalog="system" width="128" height="123"/>
-        <image name="photo.fill" catalog="system" width="128" height="93"/>
-        <image name="photo.on.rectangle.angled" catalog="system" width="128" height="98"/>
+        <image name="building.columns.circle.fill" catalog="system" width="128" height="123"/>
+        <image name="fork.knife.circle.fill" catalog="system" width="128" height="123"/>
     </resources>
 </document>

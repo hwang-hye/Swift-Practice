@@ -18,18 +18,22 @@ extension UIImageView {
         self.layer.shadowOpacity = 0.8
         self.layer.shadowRadius = 5
         self.layer.shadowColor = UIColor.gray.cgColor
-        
     }
     
     func setCornerRadius(_ corners: UIRectCorner, radius: CGFloat) {
-            let path = UIBezierPath(
-                roundedRect: self.bounds,
-                byRoundingCorners: corners,
-                cornerRadii: CGSize(width: radius, height: radius)
+        let path = UIBezierPath(
+            roundedRect: self.bounds,
+            byRoundingCorners: corners,
+            cornerRadii: CGSize(width: radius, height: radius)
             )
-            let mask = CAShapeLayer()
-            mask.path = path.cgPath
-            self.layer.mask = mask
-        }
+        let mask = CAShapeLayer()
+        mask.path = path.cgPath
+        self.layer.mask = mask
     }
+    
+    func setRestaurantImageView() {
+        self.contentMode = .scaleAspectFill
+        self.layer.cornerRadius = 8
+    }
+}
     
