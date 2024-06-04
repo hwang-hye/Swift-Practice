@@ -132,7 +132,9 @@ class SignUpViewController: UIViewController {
     }
     
     @objc func signUpButtonClicked() {
-        print("HOME 화면 전환")
+        let vc = HomeViewController()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
     }
 }
 
