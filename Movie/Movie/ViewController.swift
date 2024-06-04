@@ -8,12 +8,25 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view.
+
+    // viewcontroller 생명주기
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//        configureTableView()
+//    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        configureTableView()
+
     }
-
-
+    
+    func configureTableView() {
+        let vc = SignUpViewController()
+        vc.modalPresentationStyle = .fullScreen
+        present(vc, animated: true)
+    }
 }
 

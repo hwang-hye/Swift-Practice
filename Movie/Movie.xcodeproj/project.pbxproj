@@ -13,6 +13,8 @@
 		27634C9C2C0EFFD400698CE3 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 27634C9B2C0EFFD400698CE3 /* Base */; };
 		27634C9E2C0EFFD500698CE3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27634C9D2C0EFFD500698CE3 /* Assets.xcassets */; };
 		27634CA12C0EFFD500698CE3 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 27634CA02C0EFFD500698CE3 /* Base */; };
+		27634CAE2C0F02FE00698CE3 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 27634CAD2C0F02FE00698CE3 /* SnapKit */; };
+		27634CB12C0F06EB00698CE3 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27634CB02C0F06EB00698CE3 /* SignUpViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +26,7 @@
 		27634C9D2C0EFFD500698CE3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		27634CA02C0EFFD500698CE3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		27634CA22C0EFFD500698CE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		27634CB02C0F06EB00698CE3 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				27634CAE2C0F02FE00698CE3 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +60,7 @@
 		27634C932C0EFFD400698CE3 /* Movie */ = {
 			isa = PBXGroup;
 			children = (
+				27634CAF2C0F06D400698CE3 /* SignUp */,
 				27634C942C0EFFD400698CE3 /* AppDelegate.swift */,
 				27634C962C0EFFD400698CE3 /* SceneDelegate.swift */,
 				27634C982C0EFFD400698CE3 /* ViewController.swift */,
@@ -65,6 +70,14 @@
 				27634CA22C0EFFD500698CE3 /* Info.plist */,
 			);
 			path = Movie;
+			sourceTree = "<group>";
+		};
+		27634CAF2C0F06D400698CE3 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				27634CB02C0F06EB00698CE3 /* SignUpViewController.swift */,
+			);
+			path = SignUp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -83,6 +96,9 @@
 			dependencies = (
 			);
 			name = Movie;
+			packageProductDependencies = (
+				27634CAD2C0F02FE00698CE3 /* SnapKit */,
+			);
 			productName = Movie;
 			productReference = 27634C912C0EFFD400698CE3 /* Movie.app */;
 			productType = "com.apple.product-type.application";
@@ -111,6 +127,9 @@
 				Base,
 			);
 			mainGroup = 27634C882C0EFFD400698CE3;
+			packageReferences = (
+				27634CAC2C0F02FE00698CE3 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 27634C922C0EFFD400698CE3 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -141,6 +160,7 @@
 				27634C992C0EFFD400698CE3 /* ViewController.swift in Sources */,
 				27634C952C0EFFD400698CE3 /* AppDelegate.swift in Sources */,
 				27634C972C0EFFD400698CE3 /* SceneDelegate.swift in Sources */,
+				27634CB12C0F06EB00698CE3 /* SignUpViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -375,6 +395,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		27634CAC2C0F02FE00698CE3 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		27634CAD2C0F02FE00698CE3 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 27634CAC2C0F02FE00698CE3 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 27634C892C0EFFD400698CE3 /* Project object */;
 }
