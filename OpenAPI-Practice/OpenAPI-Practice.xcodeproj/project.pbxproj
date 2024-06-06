@@ -14,6 +14,8 @@
 		2792F1282C11A697000408D4 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = 2792F1272C11A697000408D4 /* Base */; };
 		2792F1312C11A83E000408D4 /* LottoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2792F1302C11A83E000408D4 /* LottoViewController.swift */; };
 		2792F1332C11A90C000408D4 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2792F1322C11A90C000408D4 /* .gitignore */; };
+		2792F1362C11AD5B000408D4 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2792F1352C11AD5B000408D4 /* SnapKit */; };
+		2792F1392C11AD69000408D4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2792F1382C11AD69000408D4 /* Alamofire */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2792F1362C11AD5B000408D4 /* SnapKit in Frameworks */,
+				2792F1392C11AD69000408D4 /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +98,10 @@
 			dependencies = (
 			);
 			name = "OpenAPI-Practice";
+			packageProductDependencies = (
+				2792F1352C11AD5B000408D4 /* SnapKit */,
+				2792F1382C11AD69000408D4 /* Alamofire */,
+			);
 			productName = "OpenAPI-Practice";
 			productReference = 2792F1182C11A696000408D4 /* OpenAPI-Practice.app */;
 			productType = "com.apple.product-type.application";
@@ -122,6 +130,10 @@
 				Base,
 			);
 			mainGroup = 2792F10F2C11A696000408D4;
+			packageReferences = (
+				2792F1342C11AD5B000408D4 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				2792F1372C11AD69000408D4 /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 2792F1192C11A696000408D4 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -301,7 +313,6 @@
 				INFOPLIST_FILE = "OpenAPI-Practice/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -334,7 +345,6 @@
 				INFOPLIST_FILE = "OpenAPI-Practice/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
@@ -377,6 +387,38 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		2792F1342C11AD5B000408D4 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
+		2792F1372C11AD69000408D4 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2792F1352C11AD5B000408D4 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2792F1342C11AD5B000408D4 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+		2792F1382C11AD69000408D4 /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2792F1372C11AD69000408D4 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2792F1102C11A696000408D4 /* Project object */;
 }
