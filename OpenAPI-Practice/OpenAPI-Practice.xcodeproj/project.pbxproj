@@ -16,6 +16,7 @@
 		2792F1332C11A90C000408D4 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 2792F1322C11A90C000408D4 /* .gitignore */; };
 		2792F1362C11AD5B000408D4 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2792F1352C11AD5B000408D4 /* SnapKit */; };
 		2792F1392C11AD69000408D4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2792F1382C11AD69000408D4 /* Alamofire */; };
+		2792F13B2C1300CE000408D4 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2792F13A2C1300CE000408D4 /* APIKey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		2792F1292C11A697000408D4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2792F1302C11A83E000408D4 /* LottoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoViewController.swift; sourceTree = "<group>"; };
 		2792F1322C11A90C000408D4 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		2792F13A2C1300CE000408D4 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				2792F1242C11A697000408D4 /* Assets.xcassets */,
 				2792F1262C11A697000408D4 /* LaunchScreen.storyboard */,
 				2792F1292C11A697000408D4 /* Info.plist */,
+				2792F13A2C1300CE000408D4 /* APIKey.swift */,
 			);
 			path = "OpenAPI-Practice";
 			sourceTree = "<group>";
@@ -165,6 +168,7 @@
 				2792F1312C11A83E000408D4 /* LottoViewController.swift in Sources */,
 				2792F11C2C11A696000408D4 /* AppDelegate.swift in Sources */,
 				2792F11E2C11A696000408D4 /* SceneDelegate.swift in Sources */,
+				2792F13B2C1300CE000408D4 /* APIKey.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
