@@ -17,6 +17,7 @@
 		2792F1362C11AD5B000408D4 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 2792F1352C11AD5B000408D4 /* SnapKit */; };
 		2792F1392C11AD69000408D4 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 2792F1382C11AD69000408D4 /* Alamofire */; };
 		2792F13B2C1300CE000408D4 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2792F13A2C1300CE000408D4 /* APIKey.swift */; };
+		2792F13F2C13460E000408D4 /* MovieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2792F13E2C13460E000408D4 /* MovieViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +31,7 @@
 		2792F1302C11A83E000408D4 /* LottoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottoViewController.swift; sourceTree = "<group>"; };
 		2792F1322C11A90C000408D4 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		2792F13A2C1300CE000408D4 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		2792F13E2C13460E000408D4 /* MovieViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +67,7 @@
 		2792F11A2C11A696000408D4 /* OpenAPI-Practice */ = {
 			isa = PBXGroup;
 			children = (
+				2792F13D2C1345D3000408D4 /* Movie */,
 				2792F12F2C11A812000408D4 /* Lotto */,
 				2792F11B2C11A696000408D4 /* AppDelegate.swift */,
 				2792F11D2C11A696000408D4 /* SceneDelegate.swift */,
@@ -83,6 +86,14 @@
 				2792F1302C11A83E000408D4 /* LottoViewController.swift */,
 			);
 			path = Lotto;
+			sourceTree = "<group>";
+		};
+		2792F13D2C1345D3000408D4 /* Movie */ = {
+			isa = PBXGroup;
+			children = (
+				2792F13E2C13460E000408D4 /* MovieViewController.swift */,
+			);
+			path = Movie;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -169,6 +180,7 @@
 				2792F11C2C11A696000408D4 /* AppDelegate.swift in Sources */,
 				2792F11E2C11A696000408D4 /* SceneDelegate.swift in Sources */,
 				2792F13B2C1300CE000408D4 /* APIKey.swift in Sources */,
+				2792F13F2C13460E000408D4 /* MovieViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

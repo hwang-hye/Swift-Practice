@@ -18,7 +18,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: scene)
         
         // ViewController()
-        let vc = LottoViewController()
+        //let vc = LottoViewController()
+        let vc = MovieViewController()
         // Entry Point
         window?.rootViewController = vc
         // Show
