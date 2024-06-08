@@ -13,10 +13,9 @@ class MovieViewController: UIViewController {
     
     let searchDateTextField = UITextField()
     let searchDateButton = UIButton()
-    
     let movieRankStackView = UIStackView()
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -42,6 +41,20 @@ class MovieViewController: UIViewController {
         searchDateTextField.textColor = .white
         searchDateTextField.font = .systemFont(ofSize: 16, weight: .semibold)
         
+        // 변경된 placeholder 색상 및 들여쓰기 설정
+        let placeholderColor = UIColor.gray
+        let paragraphStyle = NSMutableParagraphStyle()
+        paragraphStyle.firstLineHeadIndent = 10 
+        
+        searchDateTextField.attributedPlaceholder = NSAttributedString(
+            string: "날짜를 입력하세요 ex)20200401",
+            attributes: [
+                NSAttributedString.Key.foregroundColor: placeholderColor,
+                NSAttributedString.Key.paragraphStyle: paragraphStyle
+            ]
+        )
+        
+        
         searchDateButton.setTitle("검색", for: .normal)
         searchDateButton.setTitleColor(.black, for: .normal)
         searchDateButton.setTitleColor(.darkGray, for: .highlighted)
@@ -58,7 +71,7 @@ class MovieViewController: UIViewController {
         searchDateTextField.snp.makeConstraints { make in
             make.top.equalTo(view.safeAreaLayoutGuide).offset(50)
             make.leading.equalTo(view.safeAreaLayoutGuide).inset(20)
-            make.width.equalTo(200)
+            make.trailing.equalTo(searchDateButton.snp.leading).inset(-20)
             make.height.equalTo(50)
         }
         
@@ -76,47 +89,48 @@ class MovieViewController: UIViewController {
         }
         
         
-        
-        // 대략 10개의 rankStackView UI 생성
-          for i in 1...10 {
-              let rankStackView = createRankStackView(rank: i)
-              movieRankStackView.addArrangedSubview(rankStackView)
-          }
+        // 대략 10개의 영화 순위 UI 생성
+        for i in 1...10 {
+            let rankItemStackView = createRankItemStackView(rank: i)
+            movieRankStackView.addArrangedSubview(rankItemStackView)
+        }
     }
     
-
-    func createRankStackView(rank: Int) -> UIStackView {
-        // horizontal stack view 생성
-        let movieInfoStackView = UIStackView()
-        movieInfoStackView.axis = .horizontal
-        movieInfoStackView.spacing = 10
-        movieInfoStackView.alignment = .center
-        movieInfoStackView.distribution = .fillEqually
+    func createRankItemStackView(rank: Int) -> UIStackView {
+        let rankItemStackView = UIStackView()
+        rankItemStackView.axis = .horizontal
+        rankItemStackView.spacing = 14
+        rankItemStackView.alignment = .center
         
-        // rankLabel
-        let movieRankLabel = UILabel()
-        movieRankLabel.text = "\(rank)"
-        movieRankLabel.textColor = .black
-        movieRankLabel.textAlignment = .center
-        movieRankLabel.backgroundColor = .white
-        movieInfoStackView.addArrangedSubview(movieRankLabel)
+        let rankLabel = UILabel()
+        rankLabel.text = "\(rank)"
+        rankLabel.font = .boldSystemFont(ofSize: 16)
+        rankLabel.textColor = .black
+        rankLabel.textAlignment = .center
+        rankLabel.backgroundColor = .white
+        rankLabel.snp.makeConstraints { make in
+            make.width.equalTo(30)
+        }
         
-        // titleLabel
-        let movieTitleLabel = UILabel()
-        movieTitleLabel.text = "Title \(rank)"
-        movieTitleLabel.textColor = .white
-        movieTitleLabel.textAlignment = .left
-        movieInfoStackView.addArrangedSubview(movieTitleLabel)
+        let titleLabel = UILabel()
+        titleLabel.text = "Title \(rank)"
+        titleLabel.font = .boldSystemFont(ofSize: 16)
+        titleLabel.textColor = .white
+        titleLabel.textAlignment = .left
+        titleLabel.snp.makeConstraints { make in
+            make.width.equalTo(200)
+        }
         
-        // dateLabel
-        let movieDateLabel = UILabel()
-        movieDateLabel.text = "2024-06-06"
-        movieDateLabel.textColor = .white
-        movieDateLabel.textAlignment = .center
-        movieInfoStackView.addArrangedSubview(movieDateLabel)
+        let dateLabel = UILabel()
+        dateLabel.text = "2024-06-06"
+        dateLabel.font = .systemFont(ofSize: 14, weight: .regular)
+        dateLabel.textColor = .white
+        dateLabel.textAlignment = .center
         
-        return movieInfoStackView
+        rankItemStackView.addArrangedSubview(rankLabel)
+        rankItemStackView.addArrangedSubview(titleLabel)
+        rankItemStackView.addArrangedSubview(dateLabel)
+        
+        return rankItemStackView
     }
 }
-
-
