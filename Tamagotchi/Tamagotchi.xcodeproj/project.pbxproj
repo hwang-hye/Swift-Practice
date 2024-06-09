@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		27516BC52C15BB81000BC51D /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 27516BC42C15BB81000BC51D /* SnapKit */; };
+		27516BC82C15BCB5000BC51D /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27516BC72C15BCB5000BC51D /* MainTableViewCell.swift */; };
+		27516BCA2C15C1BA000BC51D /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27516BC92C15C1BA000BC51D /* MainViewController.swift */; };
 		2792F14D2C149919000408D4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2792F14C2C149919000408D4 /* AppDelegate.swift */; };
 		2792F14F2C149919000408D4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2792F14E2C149919000408D4 /* SceneDelegate.swift */; };
 		2792F1512C149919000408D4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2792F1502C149919000408D4 /* ViewController.swift */; };
@@ -17,6 +20,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		27516BC72C15BCB5000BC51D /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		27516BC92C15C1BA000BC51D /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		2792F1492C149919000408D4 /* Tamagotchi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tamagotchi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2792F14C2C149919000408D4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		2792F14E2C149919000408D4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -33,16 +38,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				2792F1642C149C7B000408D4 /* Kingfisher in Frameworks */,
+				27516BC52C15BB81000BC51D /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		27516BC62C15BC98000BC51D /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				27516BC72C15BCB5000BC51D /* MainTableViewCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
 		2792F1402C149919000408D4 = {
 			isa = PBXGroup;
 			children = (
 				2792F1602C149A48000408D4 /* .gitignore */,
+				27516BC62C15BC98000BC51D /* Cell */,
 				2792F14B2C149919000408D4 /* Tamagotchi */,
 				2792F14A2C149919000408D4 /* Products */,
 			);
@@ -59,6 +74,7 @@
 		2792F14B2C149919000408D4 /* Tamagotchi */ = {
 			isa = PBXGroup;
 			children = (
+				2792F1652C15B724000408D4 /* Main */,
 				2792F14C2C149919000408D4 /* AppDelegate.swift */,
 				2792F14E2C149919000408D4 /* SceneDelegate.swift */,
 				2792F1502C149919000408D4 /* ViewController.swift */,
@@ -67,6 +83,14 @@
 				2792F15A2C14991A000408D4 /* Info.plist */,
 			);
 			path = Tamagotchi;
+			sourceTree = "<group>";
+		};
+		2792F1652C15B724000408D4 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				27516BC92C15C1BA000BC51D /* MainViewController.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -87,6 +111,7 @@
 			name = Tamagotchi;
 			packageProductDependencies = (
 				2792F1632C149C7B000408D4 /* Kingfisher */,
+				27516BC42C15BB81000BC51D /* SnapKit */,
 			);
 			productName = Tamagotchi;
 			productReference = 2792F1492C149919000408D4 /* Tamagotchi.app */;
@@ -118,6 +143,7 @@
 			mainGroup = 2792F1402C149919000408D4;
 			packageReferences = (
 				2792F1622C149C7B000408D4 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+				27516BC32C15BB81000BC51D /* XCRemoteSwiftPackageReference "SnapKit" */,
 			);
 			productRefGroup = 2792F14A2C149919000408D4 /* Products */;
 			projectDirPath = "";
@@ -148,7 +174,9 @@
 			files = (
 				2792F1512C149919000408D4 /* ViewController.swift in Sources */,
 				2792F14D2C149919000408D4 /* AppDelegate.swift in Sources */,
+				27516BC82C15BCB5000BC51D /* MainTableViewCell.swift in Sources */,
 				2792F14F2C149919000408D4 /* SceneDelegate.swift in Sources */,
+				27516BCA2C15C1BA000BC51D /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -297,7 +325,6 @@
 				INFOPLIST_FILE = Tamagotchi/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -330,7 +357,6 @@
 				INFOPLIST_FILE = Tamagotchi/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -375,6 +401,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		27516BC32C15BB81000BC51D /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.7.1;
+			};
+		};
 		2792F1622C149C7B000408D4 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/onevcat/Kingfisher.git";
@@ -386,6 +420,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		27516BC42C15BB81000BC51D /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 27516BC32C15BB81000BC51D /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
 		2792F1632C149C7B000408D4 /* Kingfisher */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 2792F1622C149C7B000408D4 /* XCRemoteSwiftPackageReference "Kingfisher" */;
