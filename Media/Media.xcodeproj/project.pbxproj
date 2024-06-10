@@ -16,6 +16,8 @@
 		275BE9B22C16E8C2005FD265 /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 275BE9B12C16E8C2005FD265 /* Alamofire */; };
 		275BE9B52C16E8CC005FD265 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 275BE9B42C16E8CC005FD265 /* Kingfisher */; };
 		275BE9B82C16E8D8005FD265 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 275BE9B72C16E8D8005FD265 /* SnapKit */; };
+		275BE9BA2C173BA4005FD265 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275BE9B92C173BA4005FD265 /* APIKey.swift */; };
+		275BE9BD2C173F07005FD265 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 275BE9BC2C173F07005FD265 /* MainViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		275BE9A62C16E6EB005FD265 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		275BE9A82C16E6EB005FD265 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		275BE9AE2C16E84A005FD265 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		275BE9B92C173BA4005FD265 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
+		275BE9BC2C173F07005FD265 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,14 +67,24 @@
 		275BE9992C16E6EA005FD265 /* Media */ = {
 			isa = PBXGroup;
 			children = (
+				275BE9BB2C173EF1005FD265 /* Main */,
 				275BE99A2C16E6EA005FD265 /* AppDelegate.swift */,
 				275BE99C2C16E6EA005FD265 /* SceneDelegate.swift */,
 				275BE99E2C16E6EA005FD265 /* ViewController.swift */,
 				275BE9A32C16E6EB005FD265 /* Assets.xcassets */,
 				275BE9A52C16E6EB005FD265 /* LaunchScreen.storyboard */,
 				275BE9A82C16E6EB005FD265 /* Info.plist */,
+				275BE9B92C173BA4005FD265 /* APIKey.swift */,
 			);
 			path = Media;
+			sourceTree = "<group>";
+		};
+		275BE9BB2C173EF1005FD265 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				275BE9BC2C173F07005FD265 /* MainViewController.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,7 +170,9 @@
 			files = (
 				275BE99F2C16E6EA005FD265 /* ViewController.swift in Sources */,
 				275BE99B2C16E6EA005FD265 /* AppDelegate.swift in Sources */,
+				275BE9BA2C173BA4005FD265 /* APIKey.swift in Sources */,
 				275BE99D2C16E6EA005FD265 /* SceneDelegate.swift in Sources */,
+				275BE9BD2C173F07005FD265 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
