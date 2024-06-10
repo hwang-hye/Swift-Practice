@@ -6,7 +6,11 @@
 //
 
 import UIKit
+import Alamofire
+import Kingfisher
+import SnapKit
 
+// Interface 정의
 struct MovieTrend: Decodable {
     let page: String
     let results: [Movie]
@@ -45,22 +49,64 @@ struct Movie: Decodable {
 
 
 class MainViewController: UIViewController {
+    
+    let mainTableView = UITableView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let menuBarButton = UIBarButtonItem(image: UIImage(systemName: "line.horizontal.3"), style: .plain, target: self, action: #selector(menuBarButtonClicked))
+        let searchBarButton = UIBarButtonItem(image: UIImage(systemName: "magnifyingglass"), style: .plain, target: self, action: #selector(searchBarButtonClicked))
+        
+        navigationItem.leftBarButtonItem = menuBarButton
+        navigationItem.rightBarButtonItem = searchBarButton
+        
+        configureUI()
+        configureTableView()
+        
+        
 
-        // Do any additional setup after loading the view.
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func menuBarButtonClicked() {
+        print("menuBarButtonClick!")
     }
-    */
+    
+    @objc func searchBarButtonClicked() {
+        print("searchBarButtonClick!")
+    }
+    
+    func configureUI() {
+        view.backgroundColor = .white
+        mainTableView.rowHeight = 380
+        self.title = "TREND WEEK"
+    }
+    
+    func configureTableView() {
+        view.addSubview(mainTableView)
+        mainTableView.snp.makeConstraints { make in
+            make.edges.equalTo(view.safeAreaLayoutGuide)
+        }
+        
+        mainTableView.delegate = self
+        mainTableView.dataSource = self
+        mainTableView.register(MainTableViewCell.self, forCellReuseIdentifier: MainTableViewCell.identifier)
+        
+    }
+}
 
+
+extension MainViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // 임의의 Cell 3개 출력해서 UI확인
+        return 3
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.identifier, for: indexPath) as! MainTableViewCell
+        
+        return cell
+    }
 }
