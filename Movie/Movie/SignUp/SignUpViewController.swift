@@ -132,7 +132,7 @@ class SignUpViewController: UIViewController {
     }
     
     @objc func signUpButtonClicked() {
-        let vc = HomeViewController()
+        let vc = SearchCollectionViewController()
         vc.modalPresentationStyle = .fullScreen
         present(vc, animated: true)
     }
