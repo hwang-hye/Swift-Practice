@@ -10,48 +10,13 @@ import Alamofire
 import Kingfisher
 import SnapKit
 
-// Interface 정의
-struct MovieTrend: Decodable {
-    let page: String
-    let results: [Movie]
-}
-
-struct Movie: Decodable {
-    let backdropPath: String
-    let id: Int
-    let originalTitle, overview, posterPath, mediaType: String
-    let adult: Bool
-    let title, originalLanguage: String
-    let genreIDS: [Int]
-    let popularity: Double
-    let releaseDate: String
-    let video: Bool
-    let voteAverage: Double
-    let voteCount: Int
-    
-    enum CodingKeys: String, CodingKey {
-        case backdropPath = "backdrop_path"
-        case id
-        case originalTitle = "original_title"
-        case overview
-        case posterPath = "poster_path"
-        case mediaType = "media_type"
-        case adult, title
-        case originalLanguage = "original_language"
-        case genreIDS = "genre_ids"
-        case popularity
-        case releaseDate = "release_date"
-        case video
-        case voteAverage = "vote_average"
-        case voteCount = "vote_count"
-    }
-}
-
 
 class MainViewController: UIViewController {
     
     let mainTableView = UITableView()
-
+    
+    var list: [Movie] = []
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -63,10 +28,32 @@ class MainViewController: UIViewController {
         
         configureUI()
         configureTableView()
+        callRequestMain()
         
-        
-
     }
+    
+    
+    func callRequestMain() {
+        print(#function)
+        
+        let url = "\(APIURL.tmdbURL)\(APIKey.api_key)"
+        
+        AF.request(url, method: .get)
+            .responseDecodable(of: MovieTrend.self) { response in
+                switch response.result {
+                case .success(let value):
+                    print("SUCCESS")
+                    dump(value)
+                    self.list = value.results
+                    self.mainTableView.reloadData()
+                    
+                case .failure(let error):
+                    print("Failed")
+                    print(error)
+                }
+            }
+    }
+    
     
     @objc func menuBarButtonClicked() {
         print("menuBarButtonClick!")
@@ -99,13 +86,26 @@ class MainViewController: UIViewController {
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // 임의의 Cell 3개 출력해서 UI확인
-        return 3
+        return list.count
     }
+    
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: MainTableViewCell.identifier, for: indexPath) as! MainTableViewCell
+        
+        let movie = list[indexPath.row]
+        cell.releaseDateLabel.text = movie.releaseDate
+        
+        if let imageURL = URL(string: "\(APIURL.tmdbImageURL)\(movie.backdropPath)") {
+            cell.thumbnailImageView.kf.setImage(with: imageURL)
+        }
+        
+        let rating = String(format: "%.1f", movie.voteAverage)
+        cell.ratingLabel.text = rating
+        
+        cell.titleLabel.text = movie.originalTitle
+        cell.subtitleLabel.text = movie.overview
         
         return cell
     }

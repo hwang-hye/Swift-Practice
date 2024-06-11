@@ -63,9 +63,7 @@ class MainTableViewCell: UITableViewCell {
         
         genreHashtagLabel.text = "#Mystery"
         genreHashtagLabel.font = .systemFont(ofSize: 16, weight: .bold)
-        
-        thumbnailImageView.backgroundColor = .gray
-        
+                
         ratingInfoLabel.text = "평점"
         ratingInfoLabel.textAlignment = .center
         ratingInfoLabel.font = .systemFont(ofSize: 12, weight: .semibold)
