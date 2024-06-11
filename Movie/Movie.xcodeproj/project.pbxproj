@@ -20,6 +20,7 @@
 		27BB2E072C18B33E0074820D /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BB2E062C18B33E0074820D /* SearchCollectionViewCell.swift */; };
 		27BB2E0B2C18B4DE0074820D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 27BB2E0A2C18B4DE0074820D /* Kingfisher */; };
 		27BB2E0E2C18B4E70074820D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 27BB2E0D2C18B4E70074820D /* Alamofire */; };
+		27BB2E102C18BAF80074820D /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BB2E0F2C18BAF80074820D /* Search.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		27634CB32C0F7EBD00698CE3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		27BB2E042C18B26B0074820D /* SearchCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewController.swift; sourceTree = "<group>"; };
 		27BB2E062C18B33E0074820D /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
+		27BB2E0F2C18BAF80074820D /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			children = (
 				27BB2E042C18B26B0074820D /* SearchCollectionViewController.swift */,
 				27BB2E062C18B33E0074820D /* SearchCollectionViewCell.swift */,
+				27BB2E0F2C18BAF80074820D /* Search.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -195,6 +198,7 @@
 				27634C952C0EFFD400698CE3 /* AppDelegate.swift in Sources */,
 				27634C972C0EFFD400698CE3 /* SceneDelegate.swift in Sources */,
 				27BB2E052C18B26B0074820D /* SearchCollectionViewController.swift in Sources */,
+				27BB2E102C18BAF80074820D /* Search.swift in Sources */,
 				27BB2E072C18B33E0074820D /* SearchCollectionViewCell.swift in Sources */,
 				27634CB12C0F06EB00698CE3 /* SignUpViewController.swift in Sources */,
 			);
