@@ -34,7 +34,8 @@ struct Coord: Codable {
 // MARK: - Main
 struct Main: Codable {
     let temp, feelsLike, tempMin, tempMax: Double
-    let pressure, humidity, seaLevel, grndLevel: Int?
+    let pressure, humidity, grndLevel: Int
+    let seaLevel: Int?
 
     enum CodingKeys: String, CodingKey {
         case temp
@@ -68,8 +69,26 @@ struct Wind: Codable {
 }
 
 class CurrentWeatherViewController: UIViewController {
+    
     let locationManager = CLLocationManager()
     let mapView = MKMapView()
+    
+    var currentLatitude: Double?
+    var currentLongitude: Double?
+    var weatherData = WeatherResponse(
+        coord: Coord(lon: 0.0, lat: 0.0),
+        weather: [],
+        base: "",
+        main: Main(temp: 0.0, feelsLike: 0.0, tempMin: 0.0, tempMax: 0.0, pressure: 0, humidity: 0, grndLevel: 0, seaLevel: nil),
+        visibility: 0,
+        wind: Wind(speed: 0.0, deg: 0, gust: 0.0),
+        dt: 0,
+        sys: Sys(type: 0, id: 0, country: "", sunrise: 0, sunset: 0),
+        timezone: 0,
+        id: 0,
+        name: "",
+        cod: 0
+    )
     
     let backgroundImageView = UIImageView()
     let dateLabel = MyPaddingLabel()
@@ -89,16 +108,46 @@ class CurrentWeatherViewController: UIViewController {
         configureUI()
         configureLayout()
         loadItems()
+        
+        locationManager.delegate = self
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.requestLocation()
+        
+        checkDeviceLocationAuthorization()
+        
+//        refreshButton.addTarget(self, action: #selector(refreshButtonClicked), for: .touchUpInside)
     }
-
+    
+    @objc func refreshButtonClicked() {
+        checkDeviceLocationAuthorization()
+        // 권한 요청 문구 띄우기
+        // 항상 띄우지는 않는다. '처음'의 기준은? 띄울 수 있는 조건!
+        // iPhone 위치 서비스
+        // notDetermined
+        
+        // 2) 현재 사용자 위치 권한 상태 확인
+        // 3)notDetermined일때 권한 요청
+    }
     
     func loadItems() {
-        let url = "\(APIURL.weatherURL)\(APIKey.id)&lat=37.58877876214195&lon=127.00473275515431"
+        print(#function)
+        guard let lat = currentLatitude, let lon = currentLongitude else {
+                print("Current location not available")
+                return
+            }
+        
+        let url = "\(APIURL.weatherURL)?lat=\(lat)&lon=\(lon)&appid=\(APIKey.id)"
         
         AF.request(url, method: .get).responseDecodable(of: WeatherResponse.self) { response in
             switch response.result {
             case .success(let result):
                 print(result)
+                // UI Update
+                DispatchQueue.main.async {
+                    self.weatherData = result
+                    let temperature = self.weatherData.main.temp
+                    self.temperatureLabel.text = "\(temperature)°C"
+                }
             case .failure(let error):
                 print("Failed to load items: \(error)")
             }
@@ -215,6 +264,88 @@ class CurrentWeatherViewController: UIViewController {
     }
 }
 
+extension CurrentWeatherViewController {
+    // 1) if: 사용자에게 권한 요청을 하기 위해, iOS 위치 서비스 활성화 여부 체크
+    // 2) else: 현재 사용자 위치 권한 상태 확인
+    func checkDeviceLocationAuthorization() {
+        if CLLocationManager.locationServicesEnabled() {
+            checkCurrentLocationAuthoriztion()
+        } else {
+            print("위치 서비스가 꺼져 있어서, 권한 요청을 할 수 없어요")
+        }
+    }
+    
+    // 현재 사용자 위치 권한 상태 확인
+    func checkCurrentLocationAuthoriztion() {
+        var status: CLAuthorizationStatus
+        
+        if #available(iOS 14.0, *) {
+            status = locationManager.authorizationStatus
+        } else {
+            status = CLLocationManager.authorizationStatus()
+        }
+        
+        switch status {
+        case .notDetermined:
+            print("이 권한에서만 문구를 띄울 수 있음")
+            // 사용자 위치 주기적으로 업데이트
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            // info에서 요청 권힌 설정 체크
+            locationManager.requestWhenInUseAuthorization()
+            
+        case .denied:
+            print("iOS 설정 창으로 이동하라는 얼럿을 띄워주기")
+        case .authorizedWhenInUse:
+            print("위치 정보 알려달라고 로직을 구성할 수 있음")
+            // 위치 버전에 대한 보장이 필요하다
+            // 나중에 추가되는 케이스에 대한 관리 @unknown default
+            locationManager.startUpdatingLocation()
+            // startUpdatingLocation: didUpdateLocations가 실행됨
+        default:
+            print(status)
+        }
+    }
+    func setRegionAndAnnotation(center: CLLocationCoordinate2D) {
+        // 맵뷰, 맵뷰에 어노테이션
+        let region = MKCoordinateRegion(center: center, latitudinalMeters: 500, longitudinalMeters: 500)
+        mapView.setRegion(region, animated: true) // animated false이면 바로 화면 바뀜
+        
+    }
+}
+
+extension CurrentWeatherViewController: CLLocationManagerDelegate {
+    
+    // didUpdateLocations
+    // 사용자 위치를 성공적으로 가지고 온 경우
+    // 코드 구성에 따라 여러번 호출이 될 수도 있다
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let coordinate = locations.last?.coordinate {
+            print(coordinate)
+            print(coordinate.latitude)
+            print(coordinate.longitude)
+        
+            // 전역 프로퍼티에 위치 데이터 저장
+            self.currentLatitude = coordinate.latitude
+            self.currentLongitude = coordinate.longitude
+            
+            setRegionAndAnnotation(center: coordinate)
+        }
+    }
+    // didFailWithError
+    // 사용자 위치를 가지고 오지 못한 경우
+    func locationManager(_ manager: CLLocationManager, didFailWithError error: any Error) {
+        print(#function)
+        print("위치 가지고 오지 못함")
+    }
+    // locationManagerDidChangeAuthorization
+    // 사용자 권한 상태가 변경이 될 때(iOS14) + 인스턴스가 생성이 될 때에도 호출이 된다
+    // 사용자가 허용 했었는데 아이폰 설정에서 나중에 허용을 거부한다면
+    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        checkDeviceLocationAuthorization()
+    }
+}
+    
+    
 // Text Label Padding Subclass
 class MyPaddingLabel: UILabel {
     var padding: UIEdgeInsets = .zero {
