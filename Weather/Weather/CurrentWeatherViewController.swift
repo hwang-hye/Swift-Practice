@@ -6,9 +6,71 @@
 //
 
 import UIKit
+import CoreLocation
+import MapKit
+import Alamofire
 import SnapKit
 
+// MARK: - WeatherResponse
+struct WeatherResponse: Codable {
+    let coord: Coord
+    let weather: [Weather]
+    let base: String
+    let main: Main
+    let visibility: Int
+    let wind: Wind
+    let dt: Int
+    let sys: Sys
+    let timezone, id: Int
+    let name: String
+    let cod: Int
+}
+
+// MARK: - Coord
+struct Coord: Codable {
+    let lon, lat: Double
+}
+
+// MARK: - Main
+struct Main: Codable {
+    let temp, feelsLike, tempMin, tempMax: Double
+    let pressure, humidity, seaLevel, grndLevel: Int?
+
+    enum CodingKeys: String, CodingKey {
+        case temp
+        case feelsLike = "feels_like"
+        case tempMin = "temp_min"
+        case tempMax = "temp_max"
+        case pressure, humidity
+        case seaLevel = "sea_level"
+        case grndLevel = "grnd_level"
+    }
+}
+
+// MARK: - Sys
+struct Sys: Codable {
+    let type, id: Int
+    let country: String
+    let sunrise, sunset: Int
+}
+
+// MARK: - Weather
+struct Weather: Codable {
+    let id: Int
+    let main, description, icon: String
+}
+
+// MARK: - Wind
+struct Wind: Codable {
+    let speed: Double
+    let deg: Int
+    let gust: Double
+}
+
 class CurrentWeatherViewController: UIViewController {
+    let locationManager = CLLocationManager()
+    let mapView = MKMapView()
+    
     let backgroundImageView = UIImageView()
     let dateLabel = MyPaddingLabel()
     let GeolocateNavigationView = UIView()
@@ -26,17 +88,24 @@ class CurrentWeatherViewController: UIViewController {
         super.viewDidLoad()
         configureUI()
         configureLayout()
+        loadItems()
+    }
+
+    
+    func loadItems() {
+        let url = "\(APIURL.weatherURL)\(APIKey.id)&lat=37.58877876214195&lon=127.00473275515431"
+        
+        AF.request(url, method: .get).responseDecodable(of: WeatherResponse.self) { response in
+            switch response.result {
+            case .success(let result):
+                print(result)
+            case .failure(let error):
+                print("Failed to load items: \(error)")
+            }
+        }
     }
     
     func configureUI() {
-        
-//        locationSignImage.backgroundColor = .darkGray
-//        GeolocateNavigationView.backgroundColor = .lightGray
-//        locationLabel.backgroundColor = .white
-//        locationLabel.backgroundColor = .darkGray
-//        shareButton.backgroundColor = .darkGray
-//        refreshButton.backgroundColor = .blue
-        
         backgroundImageView.image = UIImage(named: "grain-green")
         backgroundImageView.contentMode = .scaleAspectFill
         
@@ -79,8 +148,6 @@ class CurrentWeatherViewController: UIViewController {
         windSpeedLabel.padding = UIEdgeInsets(top: 2, left: 6, bottom: 2, right: 6)
         windSpeedLabel.cornerRadius = 10
         windSpeedLabel.backgroundColor = .white
-        
-        
     }
     
     func configureLayout() {
@@ -148,8 +215,7 @@ class CurrentWeatherViewController: UIViewController {
     }
 }
 
-
-
+// Text Label Padding Subclass
 class MyPaddingLabel: UILabel {
     var padding: UIEdgeInsets = .zero {
         didSet {
