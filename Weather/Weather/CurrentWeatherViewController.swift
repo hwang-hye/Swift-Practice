@@ -34,7 +34,7 @@ struct Coord: Codable {
 // MARK: - Main
 struct Main: Codable {
     let temp, feelsLike, tempMin, tempMax: Double
-    let pressure, humidity, grndLevel: Int
+    let pressure, humidity, grndLevel: Int?
     let seaLevel: Int?
 
     enum CodingKeys: String, CodingKey {
@@ -65,7 +65,7 @@ struct Weather: Codable {
 struct Wind: Codable {
     let speed: Double
     let deg: Int
-    let gust: Double
+    let gust: Double?
 }
 
 class CurrentWeatherViewController: UIViewController {
@@ -107,7 +107,7 @@ class CurrentWeatherViewController: UIViewController {
         super.viewDidLoad()
         configureUI()
         configureLayout()
-        loadItems()
+        
         
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
@@ -129,25 +129,29 @@ class CurrentWeatherViewController: UIViewController {
         // 3)notDetermined일때 권한 요청
     }
     
-    func loadItems() {
+    
+    func loadItems()  {
         print(#function)
         guard let lat = currentLatitude, let lon = currentLongitude else {
                 print("Current location not available")
                 return
             }
-        
-        let url = "\(APIURL.weatherURL)?lat=\(lat)&lon=\(lon)&appid=\(APIKey.id)"
-        
+
+        let url = "\(APIURL.weatherURL)lat=\(lat)&lon=\(lon)&appid=\(APIKey.id)&units=metric"
+
         AF.request(url, method: .get).responseDecodable(of: WeatherResponse.self) { response in
             switch response.result {
             case .success(let result):
                 print(result)
                 // UI Update
-                DispatchQueue.main.async {
-                    self.weatherData = result
-                    let temperature = self.weatherData.main.temp
-                    self.temperatureLabel.text = "\(temperature)°C"
-                }
+                self.weatherData = result
+                let temperature = self.weatherData.main.temp
+                let humidity = self.weatherData.main.humidity
+                let windSpeed = self.weatherData.wind.speed
+                self.temperatureLabel.text = "지금은 \(temperature)°C 에요"
+                self.humidityLabel.text = "\(humidity!)% 만큼 습해요"
+                self.windSpeedLabel.text = "\(windSpeed)의 바람이 불어요"
+                
             case .failure(let error):
                 print("Failed to load items: \(error)")
             }
@@ -306,9 +310,8 @@ extension CurrentWeatherViewController {
         }
     }
     func setRegionAndAnnotation(center: CLLocationCoordinate2D) {
-        // 맵뷰, 맵뷰에 어노테이션
         let region = MKCoordinateRegion(center: center, latitudinalMeters: 500, longitudinalMeters: 500)
-        mapView.setRegion(region, animated: true) // animated false이면 바로 화면 바뀜
+        mapView.setRegion(region, animated: true)
         
     }
 }
@@ -320,15 +323,15 @@ extension CurrentWeatherViewController: CLLocationManagerDelegate {
     // 코드 구성에 따라 여러번 호출이 될 수도 있다
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let coordinate = locations.last?.coordinate {
-            print(coordinate)
             print(coordinate.latitude)
             print(coordinate.longitude)
         
             // 전역 프로퍼티에 위치 데이터 저장
             self.currentLatitude = coordinate.latitude
             self.currentLongitude = coordinate.longitude
-            
+            loadItems()
             setRegionAndAnnotation(center: coordinate)
+            
         }
     }
     // didFailWithError
