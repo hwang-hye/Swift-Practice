@@ -114,6 +114,7 @@ class CurrentWeatherViewController: UIViewController {
         locationManager.requestLocation()
         
         checkDeviceLocationAuthorization()
+        datetime()
         
 //        refreshButton.addTarget(self, action: #selector(refreshButtonClicked), for: .touchUpInside)
     }
@@ -129,8 +130,18 @@ class CurrentWeatherViewController: UIViewController {
         // 3)notDetermined일때 권한 요청
     }
     
+    func datetime() {
+        let fommatter = DateFormatter()
+        fommatter.dateStyle = .long
+        fommatter.timeStyle = .medium
+        fommatter.locale = Locale(identifier: "ko-KO")
+        fommatter.dateFormat = "M월 d일 a h시 m분"
+        let str = fommatter.string(from: Date())
+        dateLabel.text = "\(str)"
+    }
     
-    func loadItems()  {
+    
+    func loadWeatherInfo()  {
         print(#function)
         guard let lat = currentLatitude, let lon = currentLongitude else {
                 print("Current location not available")
@@ -150,7 +161,7 @@ class CurrentWeatherViewController: UIViewController {
                 let windSpeed = self.weatherData.wind.speed
                 self.temperatureLabel.text = "지금은 \(temperature)°C 에요"
                 self.humidityLabel.text = "\(humidity!)% 만큼 습해요"
-                self.windSpeedLabel.text = "\(windSpeed)의 바람이 불어요"
+                self.windSpeedLabel.text = "\(windSpeed)m/s의 바람이 불어요"
                 
             case .failure(let error):
                 print("Failed to load items: \(error)")
@@ -329,7 +340,7 @@ extension CurrentWeatherViewController: CLLocationManagerDelegate {
             // 전역 프로퍼티에 위치 데이터 저장
             self.currentLatitude = coordinate.latitude
             self.currentLongitude = coordinate.longitude
-            loadItems()
+            loadWeatherInfo()
             setRegionAndAnnotation(center: coordinate)
             
         }
