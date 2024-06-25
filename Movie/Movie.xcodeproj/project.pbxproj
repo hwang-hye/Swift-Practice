@@ -18,6 +18,9 @@
 		27634CB42C0F7EBD00698CE3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27634CB32C0F7EBD00698CE3 /* HomeViewController.swift */; };
 		27B02EBE2C2ABB8C00AF39B6 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B02EBD2C2ABB8C00AF39B6 /* ContentViewController.swift */; };
 		27B02EC02C2ABC8600AF39B6 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 27B02EBF2C2ABC8600AF39B6 /* .gitignore */; };
+		27B02EC22C2ABFD000AF39B6 /* ContentTabelViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B02EC12C2ABFD000AF39B6 /* ContentTabelViewCell.swift */; };
+		27B02EC72C2AC5F300AF39B6 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B02EC62C2AC5F300AF39B6 /* BaseTableViewCell.swift */; };
+		27B02EC92C2ACCE300AF39B6 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B02EC82C2ACCE300AF39B6 /* BaseViewController.swift */; };
 		27BB2E052C18B26B0074820D /* SearchCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BB2E042C18B26B0074820D /* SearchCollectionViewController.swift */; };
 		27BB2E072C18B33E0074820D /* SearchCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27BB2E062C18B33E0074820D /* SearchCollectionViewCell.swift */; };
 		27BB2E0B2C18B4DE0074820D /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 27BB2E0A2C18B4DE0074820D /* Kingfisher */; };
@@ -38,6 +41,9 @@
 		27634CB32C0F7EBD00698CE3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		27B02EBD2C2ABB8C00AF39B6 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		27B02EBF2C2ABC8600AF39B6 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		27B02EC12C2ABFD000AF39B6 /* ContentTabelViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTabelViewCell.swift; sourceTree = "<group>"; };
+		27B02EC62C2AC5F300AF39B6 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
+		27B02EC82C2ACCE300AF39B6 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		27BB2E042C18B26B0074820D /* SearchCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewController.swift; sourceTree = "<group>"; };
 		27BB2E062C18B33E0074820D /* SearchCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchCollectionViewCell.swift; sourceTree = "<group>"; };
 		27BB2E0F2C18BAF80074820D /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
@@ -77,6 +83,7 @@
 		27634C932C0EFFD400698CE3 /* Movie */ = {
 			isa = PBXGroup;
 			children = (
+				27B02EC32C2AC5BE00AF39B6 /* Base */,
 				27B02EBC2C2ABB6900AF39B6 /* Content */,
 				27BB2E082C18B3470074820D /* Search */,
 				27634CB22C0F7EAE00698CE3 /* Home */,
@@ -112,8 +119,18 @@
 			isa = PBXGroup;
 			children = (
 				27B02EBD2C2ABB8C00AF39B6 /* ContentViewController.swift */,
+				27B02EC12C2ABFD000AF39B6 /* ContentTabelViewCell.swift */,
 			);
 			path = Content;
+			sourceTree = "<group>";
+		};
+		27B02EC32C2AC5BE00AF39B6 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				27B02EC62C2AC5F300AF39B6 /* BaseTableViewCell.swift */,
+				27B02EC82C2ACCE300AF39B6 /* BaseViewController.swift */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 		27BB2E082C18B3470074820D /* Search */ = {
@@ -209,9 +226,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				27634CB42C0F7EBD00698CE3 /* HomeViewController.swift in Sources */,
+				27B02EC22C2ABFD000AF39B6 /* ContentTabelViewCell.swift in Sources */,
 				27634C992C0EFFD400698CE3 /* ViewController.swift in Sources */,
 				27634C952C0EFFD400698CE3 /* AppDelegate.swift in Sources */,
 				27634C972C0EFFD400698CE3 /* SceneDelegate.swift in Sources */,
+				27B02EC92C2ACCE300AF39B6 /* BaseViewController.swift in Sources */,
+				27B02EC72C2AC5F300AF39B6 /* BaseTableViewCell.swift in Sources */,
 				27B02EBE2C2ABB8C00AF39B6 /* ContentViewController.swift in Sources */,
 				27BB2E052C18B26B0074820D /* SearchCollectionViewController.swift in Sources */,
 				27BB2E102C18BAF80074820D /* Search.swift in Sources */,
