@@ -1,15 +1,15 @@
 //
-//  BaseTableViewCell.swift
+//  BaseView.swift
 //  Movie
 //
-//  Created by hwanghye on 6/25/24.
+//  Created by hwanghye on 6/26/24.
 //
 
 import UIKit
 
-class BaseTableViewCell: UITableViewCell {
-    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+class BaseView: UIView {
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         configureHierarchy()
         configureLayout()
         configureView()

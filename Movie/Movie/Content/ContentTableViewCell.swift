@@ -8,11 +8,11 @@
 import UIKit
 import SnapKit
 
-class ContentTabelViewCell: BaseTableViewCell {
-    static let id = "ContentTabelViewCell"
+class ContentTableViewCell: BaseTableViewCell {
+    static let id = "ContentTableViewCell"
     
     let titleLabel = {
-       let view = UILabel()
+        let view = UILabel()
         view.font = .boldSystemFont(ofSize: 17)
         view.text = "tableview title"
         view.textColor = .black
@@ -28,9 +28,11 @@ class ContentTabelViewCell: BaseTableViewCell {
         layout.scrollDirection = .horizontal
         return layout
     }
+    
     override func configureHierarchy() {
         contentView.addSubview(titleLabel)
         contentView.addSubview(collectionView)
+
     }
     override func configureLayout() {
         titleLabel.snp.makeConstraints { make in
@@ -42,6 +44,5 @@ class ContentTabelViewCell: BaseTableViewCell {
             make.top.equalTo(titleLabel.snp.bottom)
         }
     }
-    override func configureView() {
-    }
+    override func configureView() { }
 }
