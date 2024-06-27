@@ -108,7 +108,6 @@ class CurrentWeatherViewController: UIViewController {
         configureUI()
         configureLayout()
         
-        
         locationManager.delegate = self
         locationManager.requestWhenInUseAuthorization()
         locationManager.requestLocation()
@@ -116,7 +115,7 @@ class CurrentWeatherViewController: UIViewController {
         checkDeviceLocationAuthorization()
         datetime()
         
-//        refreshButton.addTarget(self, action: #selector(refreshButtonClicked), for: .touchUpInside)
+        refreshButton.addTarget(self, action: #selector(refreshButtonClicked), for: .touchUpInside)
     }
     
     @objc func refreshButtonClicked() {
@@ -156,17 +155,29 @@ class CurrentWeatherViewController: UIViewController {
                 print(result)
                 // UI Update
                 self.weatherData = result
-                let temperature = self.weatherData.main.temp
-                let humidity = self.weatherData.main.humidity
-                let windSpeed = self.weatherData.wind.speed
-                self.temperatureLabel.text = "지금은 \(temperature)°C 에요"
-                self.humidityLabel.text = "\(humidity!)% 만큼 습해요"
-                self.windSpeedLabel.text = "\(windSpeed)m/s의 바람이 불어요"
+                self.updateUIWithWeatherData(result)
+//                let temperature = self.weatherData.main.temp
+//                let humidity = self.weatherData.main.humidity
+//                let windSpeed = self.weatherData.wind.speed
+//                self.temperatureLabel.text = "지금은 \(temperature)°C 에요"
+//                self.humidityLabel.text = "\(humidity!)% 만큼 습해요"
+//                self.windSpeedLabel.text = "\(windSpeed)m/s의 바람이 불어요"
                 
             case .failure(let error):
                 print("Failed to load items: \(error)")
             }
         }
+    }
+    
+    func updateUIWithWeatherData(_ data: WeatherResponse) {
+        let temperature = data.main.temp
+        let humidity = data.main.humidity
+        let windSpeed = data.wind.speed
+        
+        self.temperatureLabel.text = "지금은 \(temperature)°C 에요"
+        self.humidityLabel.text = "\(humidity!)% 만큼 습해요"
+        self.windSpeedLabel.text = "\(windSpeed)m/s의 바람이 불어요"
+        self.locationLabel.text = data.name
     }
     
     func configureUI() {
@@ -342,6 +353,7 @@ extension CurrentWeatherViewController: CLLocationManagerDelegate {
             self.currentLongitude = coordinate.longitude
             loadWeatherInfo()
             setRegionAndAnnotation(center: coordinate)
+//            self.locationLabel = weatherData.name
             
         }
     }
@@ -418,3 +430,5 @@ class MyPaddingLabel: UILabel {
     }
 }
 
+
+// text
