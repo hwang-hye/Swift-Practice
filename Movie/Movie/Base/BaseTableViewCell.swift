@@ -16,7 +16,8 @@ class BaseTableViewCell: UITableViewCell {
     }
     func configureHierarchy() { }
     func configureLayout() { }
-    func configureView() { }
+    func configureView() {
+    }
     
     @available(*, unavailable)
     required init?(coder: NSCoder) {

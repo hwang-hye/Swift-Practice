@@ -10,7 +10,7 @@ import Kingfisher
 import SnapKit
 
 class ContentViewController: BaseViewController {
-    lazy var tableVIew = {
+    lazy var tableView = {
         let view = UITableView()
         view.delegate = self
         view.dataSource = self
@@ -70,17 +70,23 @@ class ContentViewController: BaseViewController {
             }
         }
         group.notify(queue: .main) {
-            self.tableVIew.reloadData()
+            self.tableView.reloadData()
         }
     }
     
     override func configureHierarchy() {
-        view.addSubview(tableVIew)
+        view.addSubview(tableView)
     }
     override func configureLayout() {
-        tableVIew.snp.makeConstraints { make in
+        tableView.snp.makeConstraints { make in
             make.edges.equalTo(view.safeAreaLayoutGuide)
         }
+    }
+    
+    override func configureView() {
+        tableView.backgroundColor = .black
+        // tableView Cell, collectionView Cell backgroundColor까지 바꿔주어야 함
+        // 한번에 할 수 없는지?
     }
 }
 
@@ -91,6 +97,7 @@ extension ContentViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: ContentTableViewCell.id, for: indexPath) as! ContentTableViewCell
+        cell.backgroundColor = .black
         cell.collectionView.dataSource = self
         cell.collectionView.delegate = self
         cell.collectionView.tag = indexPath.row

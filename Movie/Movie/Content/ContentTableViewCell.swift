@@ -15,7 +15,7 @@ class ContentTableViewCell: BaseTableViewCell {
         let view = UILabel()
         view.font = .boldSystemFont(ofSize: 17)
         view.text = "tableview title"
-        view.textColor = .black
+        view.textColor = .white
         return view
     }()
     let collectionView = UICollectionView(frame: .zero, collectionViewLayout: layout())
@@ -44,5 +44,7 @@ class ContentTableViewCell: BaseTableViewCell {
             make.top.equalTo(titleLabel.snp.bottom)
         }
     }
-    override func configureView() { }
+    override func configureView() {
+        collectionView.backgroundColor = .black
+    }
 }

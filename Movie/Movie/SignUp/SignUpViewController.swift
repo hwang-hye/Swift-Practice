@@ -132,9 +132,10 @@ class SignUpViewController: UIViewController {
     }
     
     @objc func signUpButtonClicked() {
-        let vc = SearchCollectionViewController()
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
+        let tabBarController = TabBarController()
+        tabBarController.modalPresentationStyle = .fullScreen
+        present(tabBarController, animated: true)
+        view.window?.makeKeyAndVisible()
     }
 }
 

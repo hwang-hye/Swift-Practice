@@ -31,6 +31,7 @@
 		27ECCBDB2C2C5A7100E9AA72 /* TMDBRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27ECCBDA2C2C5A7100E9AA72 /* TMDBRequest.swift */; };
 		27ECCBDF2C2C5AB900E9AA72 /* APIKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27ECCBDE2C2C5AB900E9AA72 /* APIKey.swift */; };
 		27ECCBE12C2C5CE100E9AA72 /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27ECCBE02C2C5CE100E9AA72 /* BaseView.swift */; };
+		27ECCBE52C2EE5BF00E9AA72 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27ECCBE42C2EE5BF00E9AA72 /* TabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -57,6 +58,7 @@
 		27ECCBDA2C2C5A7100E9AA72 /* TMDBRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TMDBRequest.swift; sourceTree = "<group>"; };
 		27ECCBDE2C2C5AB900E9AA72 /* APIKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKey.swift; sourceTree = "<group>"; };
 		27ECCBE02C2C5CE100E9AA72 /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		27ECCBE42C2EE5BF00E9AA72 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 				27634C9F2C0EFFD500698CE3 /* LaunchScreen.storyboard */,
 				27634CA22C0EFFD500698CE3 /* Info.plist */,
 				27ECCBDE2C2C5AB900E9AA72 /* APIKey.swift */,
+				27ECCBE42C2EE5BF00E9AA72 /* TabBarController.swift */,
 			);
 			path = Movie;
 			sourceTree = "<group>";
@@ -251,6 +254,7 @@
 				27634CB42C0F7EBD00698CE3 /* HomeViewController.swift in Sources */,
 				27B02EC22C2ABFD000AF39B6 /* ContentTableViewCell.swift in Sources */,
 				27634C992C0EFFD400698CE3 /* ViewController.swift in Sources */,
+				27ECCBE52C2EE5BF00E9AA72 /* TabBarController.swift in Sources */,
 				27ECCBE12C2C5CE100E9AA72 /* BaseView.swift in Sources */,
 				27634C952C0EFFD400698CE3 /* AppDelegate.swift in Sources */,
 				27B02ECB2C2ACF0900AF39B6 /* ContentCollectionViewCell.swift in Sources */,
