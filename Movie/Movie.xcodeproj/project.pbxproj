@@ -16,6 +16,7 @@
 		27634CAE2C0F02FE00698CE3 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 27634CAD2C0F02FE00698CE3 /* SnapKit */; };
 		27634CB12C0F06EB00698CE3 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27634CB02C0F06EB00698CE3 /* SignUpViewController.swift */; };
 		27634CB42C0F7EBD00698CE3 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27634CB32C0F7EBD00698CE3 /* HomeViewController.swift */; };
+		2775E4812C304652009A81B5 /* ContentDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2775E4802C304652009A81B5 /* ContentDetailViewController.swift */; };
 		27B02EBE2C2ABB8C00AF39B6 /* ContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B02EBD2C2ABB8C00AF39B6 /* ContentViewController.swift */; };
 		27B02EC02C2ABC8600AF39B6 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 27B02EBF2C2ABC8600AF39B6 /* .gitignore */; };
 		27B02EC22C2ABFD000AF39B6 /* ContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27B02EC12C2ABFD000AF39B6 /* ContentTableViewCell.swift */; };
@@ -45,6 +46,7 @@
 		27634CA22C0EFFD500698CE3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		27634CB02C0F06EB00698CE3 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		27634CB32C0F7EBD00698CE3 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		2775E4802C304652009A81B5 /* ContentDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentDetailViewController.swift; sourceTree = "<group>"; };
 		27B02EBD2C2ABB8C00AF39B6 /* ContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewController.swift; sourceTree = "<group>"; };
 		27B02EBF2C2ABC8600AF39B6 /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
 		27B02EC12C2ABFD000AF39B6 /* ContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentTableViewCell.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 				27B02EBD2C2ABB8C00AF39B6 /* ContentViewController.swift */,
 				27B02EC12C2ABFD000AF39B6 /* ContentTableViewCell.swift */,
 				27B02ECA2C2ACF0900AF39B6 /* ContentCollectionViewCell.swift */,
+				2775E4802C304652009A81B5 /* ContentDetailViewController.swift */,
 			);
 			path = Content;
 			sourceTree = "<group>";
@@ -265,6 +268,7 @@
 				27B02EBE2C2ABB8C00AF39B6 /* ContentViewController.swift in Sources */,
 				27ECCBDF2C2C5AB900E9AA72 /* APIKey.swift in Sources */,
 				27BB2E052C18B26B0074820D /* SearchCollectionViewController.swift in Sources */,
+				2775E4812C304652009A81B5 /* ContentDetailViewController.swift in Sources */,
 				27BB2E102C18BAF80074820D /* Search.swift in Sources */,
 				27ECCBDB2C2C5A7100E9AA72 /* TMDBRequest.swift in Sources */,
 				27BB2E072C18B33E0074820D /* SearchCollectionViewCell.swift in Sources */,

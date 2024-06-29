@@ -25,6 +25,8 @@ class ContentViewController: BaseViewController {
     [TrendingDetail(poster_path: "")]
     ]
     
+    var selectedIndexPathItem: Int?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -118,5 +120,16 @@ extension ContentViewController: UICollectionViewDelegate, UICollectionViewDataS
         let url = URL(string: "https://image.tmdb.org/t/p/w500\(data.poster_path)")
         cell.posterImageView.kf.setImage(with: url)
         return cell
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let selectedItem = indexPath.item
+        self.selectedIndexPathItem = selectedItem
+        print("선택된 셀:\(selectedItem)")
+        let contentDetailVC = ContentDetailViewController()
+        contentDetailVC.selectedItem = selectedItem
+        navigationController?.pushViewController(contentDetailVC, animated: true)
+//        if let cell = collectionView.cellForItem(at: indexPath) as? ContentCollectionViewCell {
+//            // 클릭된 cell이 할 일
+//        }
     }
 }

@@ -14,12 +14,14 @@ class TabBarController: UITabBarController {
         tabBar.unselectedItemTintColor = .lightGray
         
         let contentVC = ContentViewController()
+        let contentNav = UINavigationController(rootViewController: contentVC)
         contentVC.tabBarItem = UITabBarItem(title: "영화", image: UIImage(systemName: "movieclapper"), tag: 0)
         
         let searchVC = SearchCollectionViewController()
+        let searchNav = UINavigationController(rootViewController: searchVC)
         searchVC.tabBarItem = UITabBarItem(title: "검색", image: UIImage(systemName: "magnifyingglass"), tag: 1)
-        
-        setViewControllers([contentVC, searchVC], animated: true)
-        selectedViewController = contentVC
+
+        setViewControllers([contentNav, searchNav], animated: true)
+        selectedViewController = contentNav
     }
 }
