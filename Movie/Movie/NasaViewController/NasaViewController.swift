@@ -21,6 +21,7 @@ private enum Nasa: String, CaseIterable {
     case seven = "2305/pia23122c-16.jpg"
     case eight = "2308/SunMonster_Wenz_960.jpg"
     case nine = "2307/AldrinVisor_Apollo11_4096.jpg"
+    case invalid = "invalid_url" // error 확인 위한 잘못된 URL 항목
      
     static var photo: URL {
         return URL(string: Nasa.baseURL + Nasa.allCases.randomElement()!.rawValue)!
@@ -43,10 +44,30 @@ class NasaViewController: BaseViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        requestButton.addTarget(self, action: #selector(requestButtonClicked), for: .touchUpInside)
     }
+    
+    func callRequest() {
+        print("call:", #function)
+        // error 검증 위한 잘못된 request
+        // let request = URLRequest(url: URL(string: Nasa.baseURL + Nasa.invalid.rawValue)!)
+        let request = URLRequest(url: Nasa.photo)
+        session = URLSession(configuration: .default, delegate: self, delegateQueue: .main)
+        session.dataTask(with: request).resume()
+    }
+    
+    @objc func requestButtonClicked() {
+        print(#function)
+        buffer = Data()
+        requestButton.isEnabled = false
+        callRequest()
+    }
+    
     override func viewWillDisappear(_ animated: Bool) {
         session.invalidateAndCancel()
     }
+    
     override func configureHierarchy() {
         view.addSubview(nasaImageView)
         view.addSubview(progressLabel)
@@ -68,7 +89,6 @@ class NasaViewController: BaseViewController {
             make.horizontalEdges.equalTo(view.safeAreaLayoutGuide).inset(20)
             make.height.equalTo(44)
         }
-
     }
     override func configureView() {
         nasaImageView.backgroundColor = .white
@@ -82,3 +102,38 @@ class NasaViewController: BaseViewController {
         requestButton.setTitleColor(.lightGray, for: .highlighted)
     }
 }
+
+extension NasaViewController: URLSessionDataDelegate {
+    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse) async -> URLSession.ResponseDisposition {
+        print("response:", #function)
+        if let response = response as? HTTPURLResponse, (200...299).contains(response.statusCode) {
+            let contentLength = response.value(forHTTPHeaderField: "Content-Length")!
+            total = Double(contentLength)!
+            return .allow
+        } else {
+            return .cancel
+        }
+    }
+    func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) {
+        print("data:", #function)
+        buffer?.append(data)
+    }
+    func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: (any Error)?) {
+        print("error", #function)
+        requestButton.isEnabled = true
+        if let error = error {
+            progressLabel.text = "문제가 발생했습니다"
+            nasaImageView.image = UIImage(systemName: "star")
+            nasaImageView.contentMode = .scaleAspectFit
+        } else {
+            print("성공")
+            guard let buffer = buffer else {
+                print("Buffer nil")
+                return
+            }
+            let image = UIImage(data: buffer)
+            nasaImageView.image = image
+        }
+    }
+}
+
