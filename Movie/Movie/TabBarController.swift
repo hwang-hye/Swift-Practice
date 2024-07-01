@@ -20,8 +20,11 @@ class TabBarController: UITabBarController {
         let searchVC = SearchCollectionViewController()
         let searchNav = UINavigationController(rootViewController: searchVC)
         searchVC.tabBarItem = UITabBarItem(title: "검색", image: UIImage(systemName: "magnifyingglass"), tag: 1)
+        let nasaVC = NasaViewController()
+        let nasaNav = UINavigationController(rootViewController: nasaVC)
+        nasaVC.tabBarItem = UITabBarItem(title: "NASA", image: UIImage(systemName: "star"), tag: 2)
 
-        setViewControllers([contentNav, searchNav], animated: true)
+        setViewControllers([contentNav, searchNav, nasaNav], animated: true)
         selectedViewController = contentNav
     }
 }
